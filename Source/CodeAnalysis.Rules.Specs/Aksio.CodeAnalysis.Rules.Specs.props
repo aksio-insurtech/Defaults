@@ -4,7 +4,6 @@
     <Copyright>Copyright Aksio</Copyright>
     <Authors>all contributors</Authors>
     <DebugType>portable</DebugType>
-    <PackageTags>MVVM;SOLID;CQRS;LOB;DDD;EDA</PackageTags>
     <PackageIcon>logo.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
