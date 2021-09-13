@@ -10,7 +10,7 @@
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public static readonly DiagnosticDescriptor Rule = new (
-             id: "DL0008",
+             id: "AS0008",
              title: "ExceptionShouldBeSpecific",
              messageFormat: "Throwing a generic system exception is not a allowed - you should create a specific exception",
              category: "Exceptions",

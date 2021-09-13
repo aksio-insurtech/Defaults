@@ -15,7 +15,7 @@
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public static readonly DiagnosticDescriptor Rule = new (
-             id: "DL0007",
+             id: "AS0007",
              title: "ExceptionDescriptionShouldFollowStandard",
              messageFormat: $"Exception description for API documentation should start with '{Phrase}'",
              category: "Naming",

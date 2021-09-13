@@ -10,7 +10,7 @@
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public static readonly DiagnosticDescriptor Rule = new (
-             id: "DL0004",
+             id: "AS0004",
              title: "ExceptionShouldNotBeSuffixed",
              messageFormat: "The use of the word 'Exception' should not be added as a suffix - create a well understood and self explanatory name for the exception",
              category: "Naming",

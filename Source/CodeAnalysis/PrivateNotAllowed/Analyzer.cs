@@ -10,7 +10,7 @@
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public static readonly DiagnosticDescriptor Rule = new (
-             id: "DL0002",
+             id: "AS0002",
              title: "PrivateNotAllowed",
              messageFormat: "Private is implicit in C# and is not needed",
              category: "Style",

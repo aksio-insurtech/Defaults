@@ -10,7 +10,7 @@
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public static readonly DiagnosticDescriptor Rule = new (
-             id: "DL0005",
+             id: "AS0005",
              title: "ExceptionShouldOnlyHaveOneConstructor",
              messageFormat: "An exception should not have more than one constructor and typically not a generic one taking a message",
              category: "Exceptions",

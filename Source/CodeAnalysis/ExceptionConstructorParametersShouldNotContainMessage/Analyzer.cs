@@ -10,7 +10,7 @@
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public static readonly DiagnosticDescriptor Rule = new (
-             id: "DL0006",
+             id: "AS0006",
              title: "ExceptionConstructorParametersShouldNotContainMessage",
              messageFormat: "An argument of an exception with the name 'message' in it indicates its a generic exception and output string ownership is wrong",
              category: "Exceptions",
