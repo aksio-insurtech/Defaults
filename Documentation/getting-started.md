@@ -1,6 +1,6 @@
 # Getting Started
 
-In your project all you need is to add a **PackageReference** to the [package](https://www.nuget.org/packages/Aksio.CodeAnalysis.Rules/).
+In your project all you need is to add a **PackageReference** to the [package](https://www.nuget.org/packages/Aksio.Defaults/).
 The `dotnet` tool-chain will during build include any `.props` or `.targets` files found in the package by convention.
 From the `.props` file you'll get a lot of default configuration set up, it will put in package information saying it is an Aksio package
 and all the defaults of Aksio. This can be overridden if you're only interested in parts of the configuration.
@@ -8,7 +8,7 @@ and all the defaults of Aksio. This can be overridden if you're only interested 
 You add the reference by doing the following from your terminal:
 
 ```shell
-$ dotnet add package Aksio.CodeAnalysis.Rules
+$ dotnet add package Aksio.Defaults
 ```
 
 Or manually add the following to your `.csproj` - obviously for good measure,
@@ -17,7 +17,7 @@ with package references.
 
 ```xml
 <ItemGroup>
-    <PackageReference Include="Aksio.CodeAnalysis.Rules" Version="1.*"/>
+    <PackageReference Include="Aksio.Defaults" Version="1.*"/>
 </ItemGroup>
 ```
 

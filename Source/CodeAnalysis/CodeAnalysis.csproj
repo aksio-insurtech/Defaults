@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)../CodeAnalysis.Rules/stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)../Defaults/stylecop.json" Link="stylecop.json" />
   </ItemGroup>
 
   <ItemGroup>

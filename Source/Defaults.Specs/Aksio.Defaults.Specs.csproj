@@ -32,11 +32,11 @@
 
 
     <ItemGroup>
-        <Content Include="Aksio.CodeAnalysis.Rules.Specs.props" PackagePath="build\" />
+        <Content Include="Aksio.Defaults.Specs.props" PackagePath="build\" />
         <Content Include="../../logo.png" PackagePath="build\" />
         <Content Include="code_analysis.ruleset" PackagePath="build\" />
-        <Content Include="../CodeAnalysis.Rules/code_analysis.ruleset" PackagePath="build\code_analysis_base.ruleset" />
-        <Content Include="../CodeAnalysis.Rules/stylecop.json" PackagePath="build\" />
+        <Content Include="../Defaults/code_analysis.ruleset" PackagePath="build\code_analysis_base.ruleset" />
+        <Content Include="../Defaults/stylecop.json" PackagePath="build\" />
         <Content Remove="bin\**" CopyToPublishDirectory="Never" />
     </ItemGroup>
 
