@@ -1,0 +1,14 @@
+global using System.Collections.Immutable;
+global using System.Text;
+global using Moq;
+global using static Moq.It;
+global using static Moq.Times;
+global using Xunit;
+global using Microsoft.CodeAnalysis;
+global using Microsoft.CodeAnalysis.CodeActions;
+global using Microsoft.CodeAnalysis.CodeFixes;
+global using Microsoft.CodeAnalysis.CSharp;
+global using Microsoft.CodeAnalysis.Diagnostics;
+global using Microsoft.CodeAnalysis.Formatting;
+global using Microsoft.CodeAnalysis.Simplification;
+global using Microsoft.CodeAnalysis.Text;

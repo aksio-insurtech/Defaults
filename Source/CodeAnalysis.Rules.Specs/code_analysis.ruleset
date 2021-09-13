@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="My Rules" ToolsVersion="15.0">
+    <!-- Rule Set Format : https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md -->
+    <!-- Rule set reference : https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019 -->
+
+    <Include Path="code_analysis_base.ruleset" Action="Default"/>
+    
+    <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+        <Rule Id="SA0001" Action="None" />
+        <Rule Id="SA1118" Action="None" />
+        <Rule Id="SA1122" Action="None" />
+        <Rule Id="SA1201" Action="None" />
+        <Rule Id="SA1302" Action="None" />
+        <Rule Id="SA1303" Action="None" />
+        <Rule Id="SA1304" Action="None" />
+        <Rule Id="SA1306" Action="None" />
+        <Rule Id="SA1307" Action="None" />
+        <Rule Id="SA1310" Action="None" />
+        <Rule Id="SA1311" Action="None" />
+        <Rule Id="SA1502" Action="None" />
+        <Rule Id="SA1600" Action="None" />
+    </Rules>
+    <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
+        <Rule Id="IDE1006" Action="None" />
+    </Rules>
+    <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
+    </Rules>  
+    <Rules AnalyzerId="Microsoft.CodeAnalysis.Features" RuleNamespace="Microsoft.CodeAnalysis.Features">
+    </Rules>
+    <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+        <Rule Id="CA1051" Action="None" />
+        <Rule Id="CA1052" Action="None" />
+        <Rule Id="CA1304" Action="None" />
+        <Rule Id="CA1305" Action="None" />
+        <Rule Id="CA1307" Action="None" />
+        <Rule Id="CA1308" Action="None" />
+        <Rule Id="CA1707" Action="None" />
+        <Rule Id="CA1715" Action="None" />
+        <Rule Id="CA1720" Action="None" />
+        <Rule Id="CA1801" Action="None" />
+        <Rule Id="CA1812" Action="None" />
+        <Rule Id="CA1819" Action="None" />
+        <Rule Id="CA1823" Action="None" />
+    </Rules>
+    <Rules AnalyzerId="Roslynator.CSharp.Analyzers" RuleNamespace="Roslynator.CSharp.Analyzers">
+        <Rule Id="RCS1079" Action="None" />
+        <Rule Id="RCS1163" Action="None" />
+        <Rule Id="RCS1169" Action="None" />
+        <Rule Id="RCS1202" Action="None" />
+        <Rule Id="RCS1213" Action="None" />
+    </Rules>
+</RuleSet>

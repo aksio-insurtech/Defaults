@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Copyright>Copyright Aksio</Copyright>
+        <Authors>all contributors</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/aksio-system/Home</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+        <TargetFramework>net5</TargetFramework>
+        <AssemblyName>Aksio.CodeAnalsysis.Rules</AssemblyName>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <PackageIcon>logo.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)../../logo.png" Pack="true" Visible="false" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3"/>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118"/>
+        <PackageReference Include="Roslynator.Analyzers" Version="3.2.2"/>
+        <PackageReference Include="Meziantou.Analyzer" Version="1.0.670">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>        
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Content Include="Aksio.CodeAnalysis.Rules.props" PackagePath="build\" />
+        <Content Include="../../logo.png" PackagePath="build\" />
+        <Content Include="code_analysis.ruleset" PackagePath="build\" />
+        <Content Include="stylecop.json" PackagePath="build\" />
+        <Content Remove="bin\**" CopyToPublishDirectory="Never" />
+    </ItemGroup>
+
+
+    <Target Name="PublishCodeAnalysis" BeforeTargets="GenerateNuspec">
+        <Exec Command="dotnet publish -c $(Configuration)" WorkingDirectory="..\CodeAnalysis"/>
+    </Target>
+
+    <Target Name="PackTaskDependencies" AfterTargets="PublishCodeAnalysis">
+
+        <ItemGroup>
+            <_PackageFiles Include="..\CodeAnalysis\bin\$(Configuration)\netstandard2.0\publish\**\*">
+                <PackagePath>analyzers/dotnet/cs/</PackagePath>
+                <Visible>false</Visible>
+                <BuildAction>Content</BuildAction>
+            </_PackageFiles>
+        </ItemGroup>
+    </Target>
+</Project>
