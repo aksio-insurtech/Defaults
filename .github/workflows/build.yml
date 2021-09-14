@@ -5,7 +5,7 @@ on:
     branches:
       - "**"
     paths:
-      - "**/*.cs"
+      - "Source/**"
 
 jobs:
   build:
