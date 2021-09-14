@@ -1,15 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <TargetFramework>net5</TargetFramework>
+        <AssemblyName>Aksio.Defaults.Specs</AssemblyName>
+
         <Copyright>Copyright Aksio</Copyright>
         <Authors>all contributors</Authors>
+        <RepositoryUrl>https://github.com/aksio-system/Defaults</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/aksio-system/Home</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageProjectUrl>https://github.com/aksio-system/Defaults</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
-        <TargetFramework>net5</TargetFramework>
-        <AssemblyName>Aksio.CodeAnalsysis.Rules.Specs</AssemblyName>
-        <NoPackageAnalysis>true</NoPackageAnalysis>
         <PackageIcon>logo.png</PackageIcon>
+
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <IncludeSymbols>true</IncludeSymbols>
+        <IncludeSource>true</IncludeSource>
     </PropertyGroup>
 
     <ItemGroup>
@@ -39,7 +44,6 @@
         <Content Include="../Defaults/stylecop.json" PackagePath="build\" />
         <Content Remove="bin\**" CopyToPublishDirectory="Never" />
     </ItemGroup>
-
 
     <Target Name="PublishCodeAnalysis" BeforeTargets="GenerateNuspec">
         <Exec Command="dotnet publish -c $(Configuration)" WorkingDirectory="..\CodeAnalysis"/>

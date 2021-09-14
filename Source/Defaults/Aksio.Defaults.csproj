@@ -1,15 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <Copyright>Copyright Aksio</Copyright>
-        <Authors>all contributors</Authors>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/aksio-system/Home</RepositoryUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
         <TargetFramework>net5</TargetFramework>
         <AssemblyName>Aksio.Defaults</AssemblyName>
-        <NoPackageAnalysis>true</NoPackageAnalysis>
+
+        <Copyright>Copyright Aksio</Copyright>
+        <Authors>all contributors</Authors>
+        <RepositoryUrl>https://github.com/aksio-system/Defaults</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/aksio-system/Defaults</PackageProjectUrl>
         <PackageIcon>logo.png</PackageIcon>
+
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <IncludeSymbols>true</IncludeSymbols>
+        <IncludeSource>true</IncludeSource>
     </PropertyGroup>
 
     <ItemGroup>
@@ -54,4 +59,4 @@
             </_PackageFiles>
         </ItemGroup>
     </Target>
-</Project>
+</Project>     
