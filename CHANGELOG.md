@@ -1,3 +1,10 @@
+# [v1.1.0] - 2021-9-14 [PR: #12](https://github.com/aksio-system/Defaults/pull/12)
+
+### Added
+
+- Adding sane default NoWarn for specifications (Aksio.Defaults.Specs).
+
+
 # [v1.0.2] - 2021-9-14 [PR: #11](https://github.com/aksio-system/Defaults/pull/11)
 
 ### Fixed
