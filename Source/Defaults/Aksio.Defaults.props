@@ -23,7 +23,7 @@
     <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
 
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <DocumentationFile>$()../../Artifacts/$(AssemblyName).xml</DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsTestProject>false</IsTestProject>
 
     <IncludeSymbols>True</IncludeSymbols>
@@ -51,7 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)logo.png" Pack="true" Visible="false" PackagePath="" />
     <Content Include="$(MSBuildThisFileDirectory)logo.png" PackagePath="" />
   </ItemGroup>
 
