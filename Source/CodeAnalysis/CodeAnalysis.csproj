@@ -13,21 +13,27 @@
   <PropertyGroup>
     <PackageId>Aksio.CodeAnalysis</PackageId>
     <PackageVersion>1.0.0.0</PackageVersion>
-    <Authors>einari</Authors>
-    <PackageProjectUrl>https://github.com/aksio-system/CodeAnalysis</PackageProjectUrl>
+    <Description>Aksio CodeAnalysis Rules</Description>
+    <Authors>Aksio</Authors>
+    <Copyright>Copyright Aksio</Copyright>
+    <PackageProjectUrl>https://github.com/aksio-system/Defaults</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>logo.png</PackageIcon>
-    <RepositoryUrl>https://github.com/aksio-system/CodeAnalysis</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/aksio-system/Defaults</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Aksio CodeAnalysis Rules</Description>
-    <Copyright>Copyright</Copyright>
     <PackageTags>Aksio, Code, Analyzers</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+    <IncludeSymbols>false</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)../../logo.png" Pack="true" Visible="false" PackagePath="" />
     <Content Include="../../logo.png" PackagePath="build\" />
+    <Content Include="../../README.md" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
