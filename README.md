@@ -7,5 +7,71 @@ This repository contains the default setup for projects with properties for how 
 and also static code analysis for projects.
 It contains custom rules and the default rule-sets with the tuned rules we care about.
 
-To get started, read the [getting started](./Documentation/getting-started.md).
 Read more about the custom analyzers [here](./Documentation/CodeAnalysis/Analyzers/overview.md).
+
+## Getting Started
+
+In your project all you need is to add a **PackageReference** to the [package](https://www.nuget.org/packages/Aksio.Defaults/).
+The `dotnet` tool-chain will during build include any `.props` or `.targets` files found in the package by convention.
+From the `.props` file you'll get a lot of default configuration set up, it will put in package information saying it is an Aksio package
+and all the defaults of Aksio. This can be overridden if you're only interested in parts of the configuration.
+
+If you're using an IDE such as Visual Studio, add a reference to the **Aksio.Defaults** package from the UI.
+
+If you're using the **dotnet** tool you add the reference by doing the following from your terminal:
+
+```shell
+$ dotnet add package Aksio.Defaults
+```
+
+Or manually add the following to your `.csproj` - obviously for good measure,
+you should just add the `<PackageReference>` inside an existing `<ItemGroup>`
+with package references.
+
+```xml
+<ItemGroup>
+    <PackageReference Include="Aksio.Defaults" Version="1.*"/>
+</ItemGroup>
+```
+
+By using a wildcard for minor in the version of the packages, you're guaranteed to have the latest of the package.
+
+### MSBuild
+
+This project relies heavily on MSBuild and its capabilities. It leverages both [reserved well known properties](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-reserved-and-well-known-properties?view=vs-2019)
+and [common project properties](https://docs.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2019).
+It takes advantage of a feature in MSBuild that by convention will include props from a file named the same as its package name in any
+consumers. In our case this is the [Aksio.Defaults.props](./Source/Defaults.Aksio.Defaults.props) and [Aksio.Defaults.Specs.props](./Source/Defaults.Aksio.Defaults.Specs.props).
+
+These props files configures a default behavior for builds with a [common set of static code analysis rules](./Source/Defaults/code_analysis.ruleset) and
+[stylecop rules](./Source/Defaults/stylecop.json). In addition to this it provides a set of default NuGet metadata properties to ease
+the creation of projects that are to be published as NuGet packages.
+
+### Packages
+
+NuGet packages that are published on the public NuGet feed should adhere to the defined [best practices](https://docs.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices).
+The default **props** file puts in most of the metadata, but some of it is specific to each project and should be
+included specifically in the **.csproj** or [Directory.Build.props](https://docs.microsoft.com/en-us/visualstudio/msbuild/build-process-overview?view=vs-2019#user-configurable-imports).
+
+Add the following properties and configure them according to your project:
+
+```xml
+<PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <RepositoryUrl>https://github.com/aksio-system/{repository}</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/aksio-system/{repository}</PackageProjectUrl>
+</PropertyGroup>
+```
+
+In addition you might want to include the **README** file of your project. Add the following
+with the correct relative filepath to the **README** file:
+
+```xml
+<PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <Content Include="../README.md" PackagePath="/" />
+</ItemGroup>
+```
