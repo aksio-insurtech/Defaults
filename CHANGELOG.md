@@ -1,3 +1,11 @@
+# [v1.1.4] - 2021-9-14 [PR: #16](https://github.com/aksio-system/Defaults/pull/16)
+
+### Fixed
+
+- Disabling [SA1000](https://documentation.help/StyleCop/SA1000.html) to allow for formatting that says `new()`.
+
+
+
 # [v1.1.3] - 2021-9-14 [PR: #15](https://github.com/aksio-system/Defaults/pull/15)
 
 ### Fixed
