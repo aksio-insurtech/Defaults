@@ -3,6 +3,7 @@
     <!-- Rule Set Format : https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md -->
     <!-- Rule set reference : https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019 -->
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+        <Rule Id="SA1009" Action="None" />
         <Rule Id="SA1101" Action="None" />
         <Rule Id="SA1200" Action="Error" />
         <Rule Id="SA1210" Action="Error" />
