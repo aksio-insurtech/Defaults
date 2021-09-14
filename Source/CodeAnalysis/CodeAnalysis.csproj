@@ -5,6 +5,9 @@
     <AssemblyName>Aksio.CodeAnalysis</AssemblyName>
     <RootNamespace>Aksio.CodeAnalysis</RootNamespace>
 
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+
     <DocumentationFile>$()../../Artifacts/$(AssemblyName).xml</DocumentationFile>   
     <NoWarn>SA1101;SA1200;SA1501;SA1503;SA1400;SA1633;RS2008</NoWarn>
     <Nullable>disable</Nullable>

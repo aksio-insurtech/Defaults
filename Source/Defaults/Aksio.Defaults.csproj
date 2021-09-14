@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net5</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>10.0</LangVersion>
         <AssemblyName>Aksio.Defaults</AssemblyName>
 
         <Copyright>Copyright Aksio</Copyright>
