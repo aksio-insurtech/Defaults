@@ -37,7 +37,6 @@
         </PackageReference>        
     </ItemGroup>
 
-
     <ItemGroup>
         <Content Include="Aksio.Defaults.Specs.props" PackagePath="build\" />
         <Content Include="../../logo.png" PackagePath="build\" />
