@@ -1,3 +1,11 @@
+# [v1.1.3] - 2021-9-14 [PR: #15](https://github.com/aksio-system/Defaults/pull/15)
+
+### Fixed
+
+- Disabling [SA1009](https://documentation.help/StyleCop/SA1009.html) StyleCop rule.
+
+
+
 # [v1.1.2] - 2021-9-14 [PR: #14](https://github.com/aksio-system/Defaults/pull/14)
 
 ### Fixed
