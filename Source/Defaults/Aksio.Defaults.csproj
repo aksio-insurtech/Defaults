@@ -11,6 +11,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/aksio-system/Defaults</PackageProjectUrl>
         <PackageIcon>logo.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <IncludeSymbols>true</IncludeSymbols>
@@ -19,6 +20,7 @@
 
     <ItemGroup>
         <None Include="$(MSBuildThisFileDirectory)../../logo.png" Pack="true" Visible="false" PackagePath="" />
+        <Content Include="../../README.md" PackagePath="/" />
     </ItemGroup>
 
     <ItemGroup>
