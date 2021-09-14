@@ -1,3 +1,12 @@
+# [v1.1.1] - 2021-9-14 [PR: #13](https://github.com/aksio-system/Defaults/pull/13)
+
+### Fixed
+
+- Generate Xml documentation by default to default location (bin/<config>/<assemblyname>.xml).
+- Fix an error where the Aksio logo asset was included twice.
+
+
+
 # [v1.1.0] - 2021-9-14 [PR: #12](https://github.com/aksio-system/Defaults/pull/12)
 
 ### Added
