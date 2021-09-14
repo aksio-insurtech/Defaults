@@ -1,3 +1,10 @@
+# [v1.1.2] - 2021-9-14 [PR: #14](https://github.com/aksio-system/Defaults/pull/14)
+
+### Fixed
+
+- Disabling the StyleCop rule [SA1633](https://documentation.help/StyleCop/SA1633.html) as we are not requiring a file header.
+
+
 # [v1.1.1] - 2021-9-14 [PR: #13](https://github.com/aksio-system/Defaults/pull/13)
 
 ### Fixed
