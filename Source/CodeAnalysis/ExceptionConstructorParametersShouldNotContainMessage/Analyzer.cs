@@ -50,7 +50,7 @@
                     var wronglyNamedParameters = constructor.ParameterList.Parameters
                                                     .Where(_ =>
                                                         _.Type.ToString().EndsWith("string", StringComparison.InvariantCultureIgnoreCase) &&
-                                                        _.Identifier.Text.Contains("message"));
+                                                        _.Identifier.Text.IndexOf("message", StringComparison.InvariantCultureIgnoreCase) >= 0);
                     foreach (var parameter in wronglyNamedParameters)
                     {
                         var diagnostic = Diagnostic.Create(Rule, parameter.Identifier.GetLocation());

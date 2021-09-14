@@ -1,3 +1,11 @@
+# [v1.0.2] - 2021-9-14 [PR: #11](https://github.com/aksio-system/Defaults/pull/11)
+
+### Fixed
+
+- Wrong target framework had been set. Supporting netstandard2.0.
+- Fixing comparison of message for AS0006 to ignore case.
+
+
 # [v1.0.1] - 2021-9-14 [PR: #9](https://github.com/aksio-system/Defaults/pull/9)
 
 ### Fixed
