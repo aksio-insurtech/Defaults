@@ -1,3 +1,10 @@
+# [v1.1.7] - 2021-9-15 [PR: #19](https://github.com/aksio-system/Defaults/pull/19)
+
+### Fixed
+
+- [AS0008](./Documentation/CodeAnalysis/Analyzers/AS0008.md) rule was too strict; allowing for [NotImplementedException](https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception).
+
+
 # [v1.1.6] - 2021-9-15 [PR: #18](https://github.com/aksio-system/Defaults/pull/18)
 
 ### Fixed
