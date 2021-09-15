@@ -1,3 +1,11 @@
+# [v1.1.9] - 2021-9-15 [PR: #21](https://github.com/aksio-system/Defaults/pull/21)
+
+### Fixed
+
+- Moving common rules found in **.editorconfig** files to rulesets to maintain it in one place instead.
+
+
+
 # [v1.1.8] - 2021-9-15 [PR: #20](https://github.com/aksio-system/Defaults/pull/20)
 
 ### Fixed
