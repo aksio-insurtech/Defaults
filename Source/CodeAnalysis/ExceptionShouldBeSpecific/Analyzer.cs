@@ -9,7 +9,7 @@
         /// <summary>
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
-        public static readonly DiagnosticDescriptor Rule = new (
+        public static readonly DiagnosticDescriptor Rule = new(
              id: "AS0008",
              title: "ExceptionShouldBeSpecific",
              messageFormat: "Throwing a generic system exception is not a allowed - you should create a specific exception",
@@ -46,8 +46,12 @@
                 if (exceptionOperation is IObjectCreationOperation exception &&
                     exception.Constructor.ContainingNamespace.Name.StartsWith("System", StringComparison.InvariantCulture))
                 {
-                    var diagnostic = Diagnostic.Create(Rule, throwOperation.Syntax.GetLocation());
-                    context.ReportDiagnostic(diagnostic);
+                    var fullName = $"{exception.Constructor.ContainingNamespace.Name}.{exception.Constructor.ContainingType.Name}";
+                    if (fullName != typeof(NotImplementedException).FullName)
+                    {
+                        var diagnostic = Diagnostic.Create(Rule, throwOperation.Syntax.GetLocation());
+                        context.ReportDiagnostic(diagnostic);
+                    }
                 }
             }
         }
