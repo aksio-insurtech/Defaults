@@ -92,6 +92,27 @@ namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
             VerifyCSharpDiagnostic(content, expected);
         }
 
+        [Fact]
+        public void ThrowingNotImplementedException()
+        {
+            const string content = @"
+                using System;
+
+                namespace MyNamespace
+                {
+                    public class MyClass
+                    {
+                        public void MyMethod()
+                        {
+                            throw new NotImplementedException();
+                        }
+                    }
+                }       
+            ";
+
+            VerifyCSharpDiagnostic(content);
+        }
+
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
             return new Analyzer();
