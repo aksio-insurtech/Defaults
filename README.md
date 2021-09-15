@@ -30,9 +30,11 @@ with package references.
 
 ```xml
 <ItemGroup>
-    <PackageReference Include="Aksio.Defaults" Version="1.*"/>
+    <PackageReference Include="Aksio.Defaults" Version="1.*" PrivateAssets="All"/>
 </ItemGroup>
 ```
+
+> Note: The `PrivateAssets="All"` is important to not let the rules and setup affect any consumer of your package.
 
 By using a wildcard for minor in the version of the packages, you're guaranteed to have the latest of the package.
 
