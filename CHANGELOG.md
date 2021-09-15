@@ -1,3 +1,10 @@
+# [v1.1.8] - 2021-9-15 [PR: #20](https://github.com/aksio-system/Defaults/pull/20)
+
+### Fixed
+
+- Adding `$(NoWarn)` in front of `<NoWarn/>` settings in props files - this will allow combining the common rules with specifics in either a **.csproj** file or a **Directory.Build.props** file. 
+
+
 # [v1.1.7] - 2021-9-15 [PR: #19](https://github.com/aksio-system/Defaults/pull/19)
 
 ### Fixed
