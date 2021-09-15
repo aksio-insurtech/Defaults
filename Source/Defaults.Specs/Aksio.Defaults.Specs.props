@@ -23,7 +23,6 @@
     <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
 
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <DocumentationFile>$()../../Artifacts/$(AssemblyName).xml</DocumentationFile>
     <IsTestProject>false</IsTestProject>
 
     <IncludeSymbols>True</IncludeSymbols>
