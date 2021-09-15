@@ -23,8 +23,13 @@
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
         <Rule Id="IDE0003" Action="Error" />
         <Rule Id="IDE0005" Action="Error" />
+        <Rule Id="IDE0010" Action="None" />
         <Rule Id="IDE0040" Action="None" />
         <Rule Id="IDE0040WithoutSuggestion" Action="None" />        
+        <Rule Id="IDE0055" Action="None" />
+        <Rule Id="IDE0072" Action="None" />
+        <Rule Id="IDE0083" Action="None" />
+        <Rule Id="IDE0130" Action="None" />
         <Rule Id="IDE1006" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
@@ -42,13 +47,19 @@
         <Rule Id="CA1063" Action="None" />
         <Rule Id="CA1065" Action="None" />
         <Rule Id="CA1303" Action="None" />
+        <Rule Id="CA1309" Action="None" />
         <Rule Id="CA1710" Action="None" />
+        <Rule Id="CA1711" Action="None" />
         <Rule Id="CA1716" Action="None" />
         <Rule Id="CA1724" Action="None" />
+        <Rule Id="CA1725" Action="None" />
+        <Rule Id="CA1805" Action="None" />
         <Rule Id="CA1810" Action="None" />
         <Rule Id="CA1816" Action="None" />
         <Rule Id="CA1822" Action="None" />
         <Rule Id="CA1829" Action="Error" />
+        <Rule Id="CA1834" Action="None" />
+        <Rule Id="CA2016" Action="None" />
         <Rule Id="CA2211" Action="None" />
         <Rule Id="CA2225" Action="None" />
         <Rule Id="CA2227" Action="None" />
