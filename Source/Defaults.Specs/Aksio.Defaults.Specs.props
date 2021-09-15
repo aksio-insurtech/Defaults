@@ -16,7 +16,7 @@
 
     <LangVersion>10.0</LangVersion>
 
-    <NoWarn>NU5105;NU5118</NoWarn>
+    <NoWarn>NU5105;NU5118;CS1591;CS8632;CS8618</NoWarn>
     <Nullable>disable</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
