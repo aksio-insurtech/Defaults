@@ -6,7 +6,14 @@
     <Include Path="code_analysis_base.ruleset" Action="Default"/>
     
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+        <Rule Id="SA1633" Action="None" />
+        <Rule Id="SA1649" Action="None" />
+        <Rule Id="SA1600" Action="None" />
+        <Rule Id="SA1310" Action="None" />
+        <Rule Id="SA1502" Action="None" />
+        <Rule Id="SA1134" Action="None" />
         <Rule Id="SA0001" Action="None" />
+        <Rule Id="SA1012" Action="None" />
         <Rule Id="SA1118" Action="None" />
         <Rule Id="SA1122" Action="None" />
         <Rule Id="SA1201" Action="None" />
@@ -18,9 +25,13 @@
         <Rule Id="SA1310" Action="None" />
         <Rule Id="SA1311" Action="None" />
         <Rule Id="SA1502" Action="None" />
+        <Rule Id="SA1516" Action="None" />
         <Rule Id="SA1600" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
+        <Rule Id="IDE0060" Action="None" />
+        <Rule Id="IDE0051" Action="None" />
+        <Rule Id="IDE1006" Action="None" />
         <Rule Id="IDE1006" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
@@ -41,12 +52,17 @@
         <Rule Id="CA1812" Action="None" />
         <Rule Id="CA1819" Action="None" />
         <Rule Id="CA1823" Action="None" />
+        <Rule Id="CA1707" Action="None" />
+        <Rule Id="CS1591" Action="None" />
+        <Rule Id="CA1051" Action="None" />
     </Rules>
     <Rules AnalyzerId="Roslynator.CSharp.Analyzers" RuleNamespace="Roslynator.CSharp.Analyzers">
         <Rule Id="RCS1079" Action="None" />
         <Rule Id="RCS1163" Action="None" />
         <Rule Id="RCS1169" Action="None" />
         <Rule Id="RCS1202" Action="None" />
+        <Rule Id="RCS1213" Action="None" />
+        <Rule Id="RCS1090" Action="None" />
         <Rule Id="RCS1213" Action="None" />
     </Rules>
 </RuleSet>
