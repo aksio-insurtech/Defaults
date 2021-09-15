@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="My Rules" ToolsVersion="15.0">
+<RuleSet Name="Aksio Rules for Specs" ToolsVersion="15.0">
     <!-- Rule Set Format : https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md -->
     <!-- Rule set reference : https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019 -->
+    <!-- Rule set groups : https://docs.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2019 -->
 
     <Include Path="code_analysis_base.ruleset" Action="Default"/>
     
@@ -29,9 +30,10 @@
         <Rule Id="SA1600" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
+        <Rule Id="IDE0044" Action="None" />
         <Rule Id="IDE0060" Action="None" />
         <Rule Id="IDE0051" Action="None" />
-        <Rule Id="IDE1006" Action="None" />
+        <Rule Id="IDE0052" Action="None" />
         <Rule Id="IDE1006" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
@@ -52,17 +54,17 @@
         <Rule Id="CA1812" Action="None" />
         <Rule Id="CA1819" Action="None" />
         <Rule Id="CA1823" Action="None" />
-        <Rule Id="CA1707" Action="None" />
-        <Rule Id="CS1591" Action="None" />
-        <Rule Id="CA1051" Action="None" />
+        <Rule Id="CA2211" Action="None" />
+        <Rule Id="CA2252" Action="None" />
     </Rules>
     <Rules AnalyzerId="Roslynator.CSharp.Analyzers" RuleNamespace="Roslynator.CSharp.Analyzers">
+        <Rule Id="RCS1018" Action="None" />
         <Rule Id="RCS1079" Action="None" />
+        <Rule Id="RCS1090" Action="None" />
         <Rule Id="RCS1163" Action="None" />
         <Rule Id="RCS1169" Action="None" />
         <Rule Id="RCS1202" Action="None" />
         <Rule Id="RCS1213" Action="None" />
-        <Rule Id="RCS1090" Action="None" />
-        <Rule Id="RCS1213" Action="None" />
+        <Rule Id="RCS1225" Action="None" />
     </Rules>
 </RuleSet>

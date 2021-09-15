@@ -1,3 +1,19 @@
+# [v1.1.6] - 2021-9-15 [PR: #18](https://github.com/aksio-system/Defaults/pull/18)
+
+### Fixed
+
+- Configuring missing rules to allow for both .NET 6 and Specs to be written with a natural language.
+
+
+
+# [v1.1.5] - 2021-9-15 [PR: #17](https://github.com/aksio-system/Defaults/pull/17)
+
+### Fixed
+
+- Moving rules from <NoWarn/> for Specs projects into the `code_analysis.ruleset`file.
+
+
+
 # [v1.1.4] - 2021-9-14 [PR: #16](https://github.com/aksio-system/Defaults/pull/16)
 
 ### Fixed
