@@ -27,6 +27,7 @@
     <IsTestProject>false</IsTestProject>
 
     <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>    
     <IncludeSource>True</IncludeSource>
 
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
