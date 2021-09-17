@@ -1,3 +1,11 @@
+# [v1.1.10] - 2021-9-17 [PR: #22](https://github.com/aksio-system/Defaults/pull/22)
+
+### Fixed
+
+- Official stable version `StyleCop.Analyzers` is 1.1.118 and it predates C#9 and records - the latest beta version 1.2.0-beta.354 supports this. Read more [here](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3213).
+
+
+
 # [v1.1.9] - 2021-9-15 [PR: #21](https://github.com/aksio-system/Defaults/pull/21)
 
 ### Fixed
