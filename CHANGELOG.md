@@ -1,3 +1,11 @@
+# [v1.1.11] - 2021-9-22 [PR: #23](https://github.com/aksio-system/Defaults/pull/23)
+
+### Fixed
+
+- Adding escalation of warnings to errors with new `MSBuildTreatWarningsAsErrors` to enable this for all code analysis rules. Read more [here](https://github.com/MicrosoftDocs/visualstudio-docs/issues/4660), discovered in [this workaround](https://github.com/dotnet/roslyn/issues/43051#issuecomment-631943470).
+- Disabling RCS1079 for enabling the use of `NotImplementedException`.
+
+
 # [v1.1.10] - 2021-9-17 [PR: #22](https://github.com/aksio-system/Defaults/pull/22)
 
 ### Fixed
