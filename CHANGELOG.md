@@ -1,3 +1,10 @@
+# [v1.1.12] - 2021-10-1 [PR: #24](https://github.com/aksio-system/Defaults/pull/24)
+
+### Fixed
+
+- Disabling SA1516 rule : Elements should be separated by blank line 
+
+
 # [v1.1.11] - 2021-9-22 [PR: #23](https://github.com/aksio-system/Defaults/pull/23)
 
 ### Fixed
