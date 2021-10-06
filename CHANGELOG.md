@@ -1,3 +1,10 @@
+# [v1.1.13] - 2021-10-6 [PR: #25](https://github.com/aksio-system/Defaults/pull/25)
+
+### Fixed
+
+- Disabling rule SA1513: Closing brace should be followed by blank line.
+
+
 # [v1.1.12] - 2021-10-1 [PR: #24](https://github.com/aksio-system/Defaults/pull/24)
 
 ### Fixed
