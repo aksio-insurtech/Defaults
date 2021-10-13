@@ -1,3 +1,10 @@
+# [v1.1.15] - 2021-10-13 [PR: #27](https://github.com/aksio-system/Defaults/pull/27)
+
+### Fixed
+
+- Disable static code analysis rule CA1812 - it prohibited the use of top level programs. This started occurring after upgrading to .NET Core 6 RC2 - we might be able to revert this change later.
+
+
 # [v1.1.14] - 2021-10-13 [PR: #26](https://github.com/aksio-system/Defaults/pull/26)
 
 ### Fixed
