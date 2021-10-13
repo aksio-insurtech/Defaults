@@ -1,3 +1,10 @@
+# [v1.1.14] - 2021-10-13 [PR: #26](https://github.com/aksio-system/Defaults/pull/26)
+
+### Fixed
+
+- Disabling static code analysis rule CA1014 - requirement of `[CLSCompliant]` attribute on assemblies. This showed up as an error after upgrading to .NET Core 6 RC2. Might be something we can revert later.
+
+
 # [v1.1.13] - 2021-10-6 [PR: #25](https://github.com/aksio-system/Defaults/pull/25)
 
 ### Fixed
