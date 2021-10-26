@@ -1,3 +1,11 @@
+# [v1.1.16] - 2021-10-26 [PR: #28](https://github.com/aksio-system/Defaults/pull/28)
+
+### Fixed
+
+- Allowing string interpolation over concatenation (RCS1217)
+- Allowing `ToLowerInvariant()` on strings (SA1308)
+
+
 # [v1.1.15] - 2021-10-13 [PR: #27](https://github.com/aksio-system/Defaults/pull/27)
 
 ### Fixed
