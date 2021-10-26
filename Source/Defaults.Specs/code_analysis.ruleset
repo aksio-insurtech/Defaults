@@ -21,6 +21,7 @@
         <Rule Id="SA1304" Action="None" />
         <Rule Id="SA1306" Action="None" />
         <Rule Id="SA1307" Action="None" />
+        <Rule Id="SA1308" Action="None" />
         <Rule Id="SA1309" Action="None" />
         <Rule Id="SA1310" Action="None" />
         <Rule Id="SA1311" Action="None" />
@@ -105,6 +106,7 @@
         <Rule Id="RCS1194" Action="None" />
         <Rule Id="RCS1202" Action="None" />
         <Rule Id="RCS1213" Action="None" />
+        <Rule Id="RCS1217" Action="None" />
         <Rule Id="RCS1225" Action="None" />
     </Rules>
 </RuleSet>
