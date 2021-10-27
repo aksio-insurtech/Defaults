@@ -1,3 +1,10 @@
+# [v1.1.17] - 2021-10-27 [PR: #29](https://github.com/aksio-system/Defaults/pull/29)
+
+### Fixed
+
+- Correction from v1.1.16; Accidently turned off wrong rule; SA1308 instead of CA1308.
+
+
 # [v1.1.16] - 2021-10-26 [PR: #28](https://github.com/aksio-system/Defaults/pull/28)
 
 ### Fixed
