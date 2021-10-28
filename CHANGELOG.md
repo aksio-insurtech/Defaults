@@ -1,3 +1,9 @@
+# [v1.1.18] - 2021-10-28 [PR: #30](https://github.com/aksio-system/Defaults/pull/30)
+
+### Fixed
+
+- Disabling RCS1163 to allow for unused parameters on methods.
+
 # [v1.1.17] - 2021-10-27 [PR: #29](https://github.com/aksio-system/Defaults/pull/29)
 
 ### Fixed
