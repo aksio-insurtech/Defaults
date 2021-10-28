@@ -75,6 +75,7 @@
         <Rule Id="RCS1057" Action="Error" />
         <Rule Id="RCS1079" Action="None" />
         <Rule Id="RCS1158" Action="None" />
+        <Rule Id="RCS1163" Action="None" />
         <Rule Id="RCS1182" Action="Error" />
         <Rule Id="RCS1194" Action="None" />
         <Rule Id="RCS1217" Action="None" />
