@@ -14,6 +14,7 @@
         <Rule Id="SA1134" Action="None" />
         <Rule Id="SA1118" Action="None" />
         <Rule Id="SA1122" Action="None" />
+        <Rule Id="SA1128" Action="None" />
         <Rule Id="SA1201" Action="None" />
         <Rule Id="SA1302" Action="None" />
         <Rule Id="SA1300" Action="None" />
@@ -33,7 +34,9 @@
         <Rule Id="SA1503" Action="None" />
         <Rule Id="SA1516" Action="None" />
         <Rule Id="SA1600" Action="None" />
+        <Rule Id="SA1623" Action="None" />
         <Rule Id="SA1633" Action="None" />
+        <Rule Id="SA1642" Action="None" />
         <Rule Id="SA1649" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
