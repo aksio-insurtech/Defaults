@@ -1,3 +1,12 @@
+# [v1.1.19] - 2021-11-23 [PR: #31](https://github.com/aksio-system/Defaults/pull/31)
+
+### Fixed
+
+- Disabling [SA1128](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1128.md) - Constructor initailizes must be on own line
+- Disabling [SA1623](https://documentation.help/StyleCop/SA1623.html) - Property summary documentation must match accessor.
+- Disabling [SA1642](https://documentation.help/StyleCop/SA1642.html) - Constructor summary documentation must begin with standard text.
+
+
 # [v1.1.18] - 2021-10-28 [PR: #30](https://github.com/aksio-system/Defaults/pull/30)
 
 ### Fixed
