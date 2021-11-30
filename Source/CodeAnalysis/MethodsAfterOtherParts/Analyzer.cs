@@ -1,6 +1,5 @@
 namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
 {
-
 #error må lage nye analyzere og tester, der vi blander BeforeOther og AfterOther, så vi kan si at den og den typen skal være mellom definerte sett av deklarasjoner
 
     // TESTKLASSEN SOM ER OK
