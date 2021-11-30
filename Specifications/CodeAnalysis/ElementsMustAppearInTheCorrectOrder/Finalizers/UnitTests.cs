@@ -1,9 +1,9 @@
-namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
+namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Finalizers
 {
     public class UnitTests: CodeFixVerifier
     {
         [Fact]
-        public void MethodsAfterOtherParts()
+        public void CorrectOrder()
         {
             const string content = @"
                 class Blabla
@@ -11,8 +11,8 @@ namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
                     string _someBacking;
                     public string BackedField => _someBacking.Replace(""a"", ""b"");
                     public int Teller { get; private set; }
-                    public event EventHandler SomethingHappened;
                     public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
 
                     public Blabla()
                     {
@@ -40,12 +40,12 @@ namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
         }
 
         [Fact]
-        public void MethodsBeforeFields()
+        public void DelegatesBeforeFields()
         {
             const string content = @"
                 class Blabla
                 {
-                    void ØkTeller() => ++_teller;
+                    public delegate void SomethingHappenedEventHandler(object sender, object args);
 
                     public int _teller = 0;
                 }
@@ -55,12 +55,12 @@ namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
         }
 
         [Fact]
-        public void MethodsBeforeProperties()
+        public void DelegatesBeforeProperties()
         {
             const string content = @"
                 class Blabla
                 {
-                    void ØkTeller() => 42;
+                    public delegate void SomethingHappenedEventHandler(object sender, object args);
 
                     public int Teller { get; private set; }
                 }
@@ -70,78 +70,78 @@ namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
         }
 
         [Fact]
-        public void MethodsBeforeEvents()
+        public void DelegatesBeforeEvents()
         {
             const string content = @"
                 class Blabla
                 {
-                    void ØkTeller() => 42;
-
                     public event EventHandler SomethingHappened;
-                }
-            ";
-
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
-
-        [Fact]
-        public void MethodsBeforeDelegates()
-        {
-            const string content = @"
-                class Blabla
-                {
-                    void ØkTeller() => 42;
 
                     public delegate void SomethingHappenedEventHandler(object sender, object args);
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
+            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
         }
 
         [Fact]
-        public void MethodsBeforeConstructor()
+        public void DelegatesAfterConstructor()
         {
             const string content = @"
                 class Blabla
                 {
-                    void ØkTeller() => 42;
-
                     public Blabla() { }
+                    
+                    public delegate void SomethingHappenedEventHandler(object sender, object args);
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
+            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
         }
 
         [Fact]
-        public void MethodsBeforeFinalizer()
+        public void DelegatesAfterFinalizer()
         {
             const string content = @"
                 class Blabla
                 {
-                    void ØkTeller() => 42;
-
                     ~Blabla() { }
+
+                    public delegate void SomethingHappenedEventHandler(object sender, object args);
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
+            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
         }
 
         [Fact]
-        public void MethodsBeforeIndexers()
+        public void DelegatesAfterIndexers()
         {
             const string content = @"
                 class Blabla
                 {
-                    void ØkTeller() => ++Teller;
-
                     public int this[int i] => 42;
+
+                    public delegate void SomethingHappenedEventHandler(object sender, object args);
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
+            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
+        }
+
+        [Fact]
+        public void DelegatesAfterMethods()
+        {
+            const string content = @"
+                class Blabla
+                {
+                    void ØkTeller() => throw new NotImplementedException();
+
+                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                }
+            ";
+
+            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
         }
 
         [Fact]
@@ -158,16 +158,17 @@ namespace Aksio.CodeAnalysis.MethodsAfterOtherParts
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Analyzer();
+            return new Delegates.Analyzer();
         }
 
         DiagnosticResult GetExpectedFailure(int failLine = 4)
         {
+            var analyzer = new Delegates.Analyzer();
             return new DiagnosticResult
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
+                Id = analyzer.Rule.Id,
+                Message = (string)analyzer.Rule.MessageFormat,
+                Severity = analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", failLine, 21) }
             };
         }

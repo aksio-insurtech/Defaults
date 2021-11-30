@@ -1,4 +1,4 @@
-namespace Aksio.CodeAnalysis.FieldsAndPropertiesBeforeOtherParts
+namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
 {
     public class UnitTests: CodeFixVerifier
     {
@@ -142,32 +142,32 @@ namespace Aksio.CodeAnalysis.FieldsAndPropertiesBeforeOtherParts
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Analyzer();
+            return new Fields.Analyzer();
         }
 
         DiagnosticResult[] GetExpectedFailures(int firstFailLine = 6, int secondFailLine = 7, int thirdFailLine = 8)
         {
             var firstFailure = new DiagnosticResult
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
+                Id = Fields.Analyzer.Rule.Id,
+                Message = (string)Fields.Analyzer.Rule.MessageFormat,
+                Severity = Fields.Analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", firstFailLine, 21) }
             };
 
             var secondFailure = new DiagnosticResult
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
+                Id = Fields.Analyzer.Rule.Id,
+                Message = (string)Fields.Analyzer.Rule.MessageFormat,
+                Severity = Fields.Analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", secondFailLine, 21) }
             };
 
             var thirdFailure = new DiagnosticResult
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
+                Id = Fields.Analyzer.Rule.Id,
+                Message = (string)Fields.Analyzer.Rule.MessageFormat,
+                Severity = Fields.Analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", thirdFailLine, 21) }
             };
 

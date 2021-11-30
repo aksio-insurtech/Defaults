@@ -1,32 +1,23 @@
-using Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder;
-
-namespace Aksio.CodeAnalysis.DelegateElementsMustAppearInTheCorrectOrder
+namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
 {
     /// <summary>
     /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
     /// </summary>
-    public class Analyzer: ElementsMustAppearInTheCorrectOrderAnalyzer
+    [DiagnosticAnalyzer(LanguageNames.CSharp)]
+    public abstract class ElementsMustAppearInTheCorrectOrderAnalyzer: DiagnosticAnalyzer
     {
-        override SyntaxKind KindToCheckFor = SyntaxKind.DelegateDeclaration;
+        /// <inheritdoc/>
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+
+        /// <summary>
+        /// The element kind we are checking the ordering for.
+        /// </summary>
+        protected abstract SyntaxKind KindToCheckFor { get; }
 
         /// <summary>
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
-        static readonly DiagnosticDescriptor Rule = new(
-            id: "AS0009",
-            title: "DelegateElementsMustAppearInTheCorrectOrder",
-            messageFormat:
-            "Delegates must after fields/properties and before delegates, events, constructors, finalizers, indexers and methods",
-            category: "Exceptions",
-            defaultSeverity: DiagnosticSeverity.Error,
-            isEnabledByDefault: true,
-            description: null,
-            helpLinkUri: string.Empty,
-            customTags: Array.Empty<string>()
-        );
-
-        /// <inheritdoc/>
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+        public abstract DiagnosticDescriptor Rule { get; }
 
         /// <inheritdoc/>
         public override void Initialize(AnalysisContext context)
@@ -43,11 +34,11 @@ namespace Aksio.CodeAnalysis.DelegateElementsMustAppearInTheCorrectOrder
                 return;
             }
 
-            var kindToCheckFor = SyntaxKind.DelegateDeclaration;
-            var elementToCheckFor = KindToElementOrder(kindToCheckFor);
+            var elementToCheckFor = KindToElementOrder(KindToCheckFor);
 
-            var currentKindList = classDeclaration.Members.Where(_ => _.Kind() == kindToCheckFor)
+            var currentKindList = classDeclaration.Members
                 .Select((m, pos) => (Member: m, Position: pos))
+                .Where(_ => _.Member.Kind() == KindToCheckFor)
                 .ToList();
 
             // Each instance of the element before the end of the types that should be before it generates an error
@@ -67,12 +58,18 @@ namespace Aksio.CodeAnalysis.DelegateElementsMustAppearInTheCorrectOrder
 
         int LastBeforeElementPosition(ClassDeclarationSyntax classDeclaration, ElementOrderList elementOrderToCheckFor)
         {
-            var kindAndPosition = classDeclaration.Members
+            var otherElementTypes = classDeclaration.Members
                 .Select((m, pos) => (ElementOrder: KindToElementOrder(m.Kind()), Position: pos))
                 .Where(_ => _.ElementOrder != elementOrderToCheckFor)
                 .ToList();
 
-            return kindAndPosition.Where(_ => _.ElementOrder > elementOrderToCheckFor).Min(_ => _.Position);
+            var elementsThatShouldBeBefore = otherElementTypes.Where(_ => _.ElementOrder < elementOrderToCheckFor).ToList();
+            if (!elementsThatShouldBeBefore.Any())
+            {
+                return 0;
+            }
+
+            return elementsThatShouldBeBefore.Max(_ => _.Position);
         }
 
         int FirstAfterElementPosition(ClassDeclarationSyntax classDeclaration, ElementOrderList elementOrderToCheckFor)
@@ -82,7 +79,13 @@ namespace Aksio.CodeAnalysis.DelegateElementsMustAppearInTheCorrectOrder
                 .Where(_ => _.ElementOrder != elementOrderToCheckFor)
                 .ToList();
 
-            return kindAndPosition.Where(_ => _.ElementOrder < elementOrderToCheckFor).Max(_ => _.Position);
+            var elementsThatShouldBeAfter = kindAndPosition.Where(_ => _.ElementOrder > elementOrderToCheckFor).ToList();
+            if (!elementsThatShouldBeAfter.Any())
+            {
+                return classDeclaration.Members.Count;
+            }
+
+            return elementsThatShouldBeAfter.Min(_ => _.Position);
         }
 
         ElementOrderList KindToElementOrder(SyntaxKind syntaxKind)

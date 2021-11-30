@@ -23,6 +23,15 @@ Example of NoWarn property:
 | [AS0006](./AS0006.md) | ExceptionConstructorParametersShouldNotContainMessage |
 | [AS0007](./AS0007.md) | ExceptionDescriptionShouldFollowStandard |
 | [AS0008](./AS0008.md) | ExceptionShouldBeSpecific |
+| [AS0009](./AS0009.md) | FieldsMustAppearInTheCorrectOrder |
+| [AS0010](./AS0010.md) | PropertiesMustAppearInTheCorrectOrder |
+| [AS0011](./AS0011.md) | DelegateElementsMustAppearInTheCorrectOrder |
+| [AS0012](./AS0012.md) | EventElementsMustAppearInTheCorrectOrder |
+| [AS0013](./AS0013.md) | ConstructorsMustAppearInTheCorrectOrder |
+| [AS0014](./AS0014.md) | FinalizerElementsMustAppearInTheCorrectOrder |
+| [AS0015](./AS0015.md) | FieldElementsMustAppearInTheCorrectOrder |
+| [AS0016](./AS0016.md) | MethodElementsMustAppearInTheCorrectOrder |
+
 
 Due to some rules in the standard analyzers from Microsoft being marked as
 *hidden* and as a consequence is not possible to enable during build, we've
