@@ -70,7 +70,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Delegates
         }
 
         [Fact]
-        public void DelegatesBeforeEvents()
+        public void DelegatesAfterEvents()
         {
             const string content = @"
                 class Blabla

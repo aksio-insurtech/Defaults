@@ -8,7 +8,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Finalizers
         /// <summary>
         /// The element kind we are checking the ordering for.
         /// </summary>
-        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DelegateDeclaration;
+        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DestructorDeclaration;
 
         /// <summary>
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.

@@ -14,13 +14,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
 #error meh Structs
 #error meh Classes* (inkl.records)
 
+#error testingen og dokumentasjon må ordnes, akkurat nå er det mange kopier av samme fil! Kan jeg generalisere her?
 
     public class UnitTests: CodeFixVerifier
     {
         [Fact]
         public void CorrectOrder()
         {
-#error testingen og dokumentasjon må ordnes, akkurat nå er det mange kopier av samme fil! Kan jeg generalisere her?
             const string content = @"
                 class Blabla
                 {
@@ -56,12 +56,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         }
 
         [Fact]
-        public void DelegatesBeforeFields()
+        public void ConstructorBeforeFields()
         {
             const string content = @"
                 class Blabla
                 {
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public Blabla() { }
 
                     public int _teller = 0;
                 }
@@ -71,12 +71,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         }
 
         [Fact]
-        public void DelegatesBeforeProperties()
+        public void ConstructorBeforeProperties()
         {
             const string content = @"
                 class Blabla
                 {
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public Blabla() { }
 
                     public int Teller { get; private set; }
                 }
@@ -86,44 +86,29 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         }
 
         [Fact]
-        public void DelegatesBeforeEvents()
-        {
-            const string content = @"
-                class Blabla
-                {
-                    public event EventHandler SomethingHappened;
-
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
-                }
-            ";
-
-            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
-        }
-
-        [Fact]
-        public void DelegatesAfterConstructor()
+        public void ConstructorBeforeEvents()
         {
             const string content = @"
                 class Blabla
                 {
                     public Blabla() { }
-                    
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+
+                    public event EventHandler SomethingHappened;
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
+            VerifyCSharpDiagnostic(content, GetExpectedFailure());
         }
 
         [Fact]
-        public void DelegatesAfterFinalizer()
+        public void ConstructorAfterFinalizer()
         {
             const string content = @"
                 class Blabla
                 {
                     ~Blabla() { }
 
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public Blabla() { }
                 }
             ";
 
@@ -131,14 +116,14 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         }
 
         [Fact]
-        public void DelegatesAfterIndexers()
+        public void ConstructorAfterIndexers()
         {
             const string content = @"
                 class Blabla
                 {
                     public int this[int i] => 42;
 
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public Blabla() { }
                 }
             ";
 
@@ -146,14 +131,14 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         }
 
         [Fact]
-        public void DelegatesAfterMethods()
+        public void ConstructorAfterMethods()
         {
             const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => throw new NotImplementedException();
 
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public Blabla() { }
                 }
             ";
 
@@ -174,12 +159,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Delegates.Analyzer();
+            return new Analyzer();
         }
 
         DiagnosticResult GetExpectedFailure(int failLine = 4)
         {
-            var analyzer = new Delegates.Analyzer();
+            var analyzer = new Analyzer();
             return new DiagnosticResult
             {
                 Id = analyzer.Rule.Id,

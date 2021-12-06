@@ -3,7 +3,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
     public class UnitTests: CodeFixVerifier
     {
         [Fact]
-        public void FieldsAndPropertiesBeforeConstructor()
+        public void CorrectOrder()
         {
             const string content = @"
                 class Blabla
@@ -38,26 +38,9 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
 
             VerifyCSharpDiagnostic(content);
         }
-
+        
         [Fact]
-        public void FieldsAndPropertiesAfterEvents()
-        {
-            const string content = @"
-                class Blabla
-                {
-                    public event EventHandler SomethingHappened;
-
-                    string _someBacking;
-                    public string BackedField => _someBacking.Replace(""a"", ""b"");
-                    public int Teller { get; private set; }
-                }
-            ";
-
-            VerifyCSharpDiagnostic(content, GetExpectedFailures());
-        }
-
-        [Fact]
-        public void FieldsAndPropertiesAfterDelegates()
+        public void PropertiesAfterDelegates()
         {
             const string content = @"
                 class Blabla
@@ -74,16 +57,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterConstructor()
+        public void PropertiesAfterEvents()
         {
             const string content = @"
                 class Blabla
                 {
-                    public Blabla()
-                    {
-                        Teller = 0;
-                        _someBacking = ""meh"";
-                    }
+                    public event EventHandler SomethingHappened;
 
                     string _someBacking;
                     public string BackedField => _someBacking.Replace(""a"", ""b"");
@@ -91,11 +70,45 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailures(10, 11, 12));
+            VerifyCSharpDiagnostic(content, GetExpectedFailures());
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterIndexers()
+        public void PropertiesAfterConstructor()
+        {
+            const string content = @"
+                class Blabla
+                {
+                    public Blabla() { }
+
+                    string _someBacking;
+                    public string BackedField => _someBacking.Replace(""a"", ""b"");
+                    public int Teller { get; private set; }
+                }
+            ";
+
+            VerifyCSharpDiagnostic(content, GetExpectedFailures());
+        }
+
+        [Fact]
+        public void PropertiesAfterFinalizer()
+        {
+            const string content = @"
+                class Blabla
+                {
+                    ~Blabla() { }
+
+                    string _someBacking;
+                    public string BackedField => _someBacking.Replace(""a"", ""b"");
+                    public int Teller { get; private set; }
+                }
+            ";
+
+            VerifyCSharpDiagnostic(content, GetExpectedFailures());
+        }
+
+        [Fact]
+        public void PropertiesAfterIndexers()
         {
             const string content = @"
                 class Blabla
@@ -112,7 +125,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterMethods()
+        public void PropertiesAfterMethods()
         {
             const string content = @"
                 class Blabla
@@ -142,36 +155,30 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Fields.Analyzer();
+            return new Analyzer();
         }
 
-        DiagnosticResult[] GetExpectedFailures(int firstFailLine = 6, int secondFailLine = 7, int thirdFailLine = 8)
+        DiagnosticResult[] GetExpectedFailures(int firstFailLine = 7, int secondFailLine = 8)
         {
+            var analyzer = new Analyzer();
+
             var firstFailure = new DiagnosticResult
             {
-                Id = Fields.Analyzer.Rule.Id,
-                Message = (string)Fields.Analyzer.Rule.MessageFormat,
-                Severity = Fields.Analyzer.Rule.DefaultSeverity,
+                Id = analyzer.Rule.Id,
+                Message = (string)analyzer.Rule.MessageFormat,
+                Severity = analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", firstFailLine, 21) }
             };
 
             var secondFailure = new DiagnosticResult
             {
-                Id = Fields.Analyzer.Rule.Id,
-                Message = (string)Fields.Analyzer.Rule.MessageFormat,
-                Severity = Fields.Analyzer.Rule.DefaultSeverity,
+                Id = analyzer.Rule.Id,
+                Message = (string)analyzer.Rule.MessageFormat,
+                Severity = analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", secondFailLine, 21) }
             };
-
-            var thirdFailure = new DiagnosticResult
-            {
-                Id = Fields.Analyzer.Rule.Id,
-                Message = (string)Fields.Analyzer.Rule.MessageFormat,
-                Severity = Fields.Analyzer.Rule.DefaultSeverity,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", thirdFailLine, 21) }
-            };
-
-            return new[] { firstFailure, secondFailure, thirdFailure };
+            
+            return new[] { firstFailure, secondFailure };
         }
     }
 }

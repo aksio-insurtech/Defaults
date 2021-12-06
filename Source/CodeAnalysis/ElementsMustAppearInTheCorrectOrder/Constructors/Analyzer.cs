@@ -8,7 +8,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         /// <summary>
         /// The element kind we are checking the ordering for.
         /// </summary>
-        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DelegateDeclaration;
+        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.ConstructorDeclaration;
 
         /// <summary>
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
@@ -16,7 +16,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         public override DiagnosticDescriptor Rule => new(
             id: "AS0013",
             title: "ConstructorsMustAppearInTheCorrectOrder",
-            messageFormat: "Constructors must after fields/properties/delegates/events, and before delegates/events/constructors/finalizers/indexers/methods",
+            messageFormat: "Constructors must after fields/properties/delegates/events, and before finalizers/indexers/methods",
             category: "Exceptions",
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true,

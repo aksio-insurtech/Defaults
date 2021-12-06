@@ -1,9 +1,9 @@
 namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
 {
     public class UnitTests: CodeFixVerifier
-    {
+    { 
         [Fact]
-        public void MethodsAfterOtherParts()
+        public void CorrectOrder()
         {
             const string content = @"
                 class Blabla
@@ -68,22 +68,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
 
             VerifyCSharpDiagnostic(content, GetExpectedFailure());
         }
-
-        [Fact]
-        public void MethodsBeforeEvents()
-        {
-            const string content = @"
-                class Blabla
-                {
-                    void ØkTeller() => 42;
-
-                    public event EventHandler SomethingHappened;
-                }
-            ";
-
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
-
+        
         [Fact]
         public void MethodsBeforeDelegates()
         {
@@ -93,6 +78,21 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                     void ØkTeller() => 42;
 
                     public delegate void SomethingHappenedEventHandler(object sender, object args);
+                }
+            ";
+
+            VerifyCSharpDiagnostic(content, GetExpectedFailure());
+        }
+        
+        [Fact]
+        public void MethodsBeforeEvents()
+        {
+            const string content = @"
+                class Blabla
+                {
+                    void ØkTeller() => 42;
+
+                    public event EventHandler SomethingHappened;
                 }
             ";
 
@@ -163,11 +163,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
 
         DiagnosticResult GetExpectedFailure(int failLine = 4)
         {
+            var analyzer = new Analyzer();
             return new DiagnosticResult
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
+                Id = analyzer.Rule.Id,
+                Message = (string)analyzer.Rule.MessageFormat,
+                Severity = analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", failLine, 21) }
             };
         }

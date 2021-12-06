@@ -3,7 +3,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
     public class UnitTests: CodeFixVerifier
     {
         [Fact]
-        public void FieldsAndPropertiesBeforeConstructor()
+        public void FieldsBeforeConstructor()
         {
             const string content = @"
                 class Blabla
@@ -40,24 +40,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterEvents()
-        {
-            const string content = @"
-                class Blabla
-                {
-                    public event EventHandler SomethingHappened;
-
-                    string _someBacking;
-                    public string BackedField => _someBacking.Replace(""a"", ""b"");
-                    public int Teller { get; private set; }
-                }
-            ";
-
-            VerifyCSharpDiagnostic(content, GetExpectedFailures());
-        }
-
-        [Fact]
-        public void FieldsAndPropertiesAfterDelegates()
+        public void FieldsAfterDelegates()
         {
             const string content = @"
                 class Blabla
@@ -65,8 +48,6 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
                     public delegate void SomethingHappenedEventHandler(object sender, object args);
 
                     string _someBacking;
-                    public string BackedField => _someBacking.Replace(""a"", ""b"");
-                    public int Teller { get; private set; }
                 }
             ";
 
@@ -74,28 +55,52 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterConstructor()
+        public void FieldsAfterEvents()
         {
             const string content = @"
                 class Blabla
                 {
-                    public Blabla()
-                    {
-                        Teller = 0;
-                        _someBacking = ""meh"";
-                    }
+                    public event EventHandler SomethingHappened;
 
                     string _someBacking;
-                    public string BackedField => _someBacking.Replace(""a"", ""b"");
-                    public int Teller { get; private set; }
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailures(10, 11, 12));
+            VerifyCSharpDiagnostic(content, GetExpectedFailures());
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterIndexers()
+        public void FieldsAfterConstructor()
+        {
+            const string content = @"
+                class Blabla
+                {
+                    public Blabla() {}
+
+                    string _someBacking;
+                }
+            ";
+
+            VerifyCSharpDiagnostic(content, GetExpectedFailures());
+        }
+
+        [Fact]
+        public void FieldsAfterFinalizer()
+        {
+            const string content = @"
+                class Blabla
+                {
+                    ~Blabla() {}
+
+                    string _someBacking;
+                }
+            ";
+
+            VerifyCSharpDiagnostic(content, GetExpectedFailures());
+        }
+
+        [Fact]
+        public void FieldsAfterIndexers()
         {
             const string content = @"
                 class Blabla
@@ -103,8 +108,6 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
                     public int this[int i] => Teller;
 
                     string _someBacking;
-                    public string BackedField => _someBacking.Replace(""a"", ""b"");
-                    public int Teller { get; private set; }
                 }
             ";
 
@@ -112,7 +115,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
         }
 
         [Fact]
-        public void FieldsAndPropertiesAfterMethods()
+        public void FieldsAfterMethods()
         {
             const string content = @"
                 class Blabla
@@ -120,8 +123,6 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
                     void ØkTeller() => ++Teller;
 
                     string _someBacking;
-                    public string BackedField => _someBacking.Replace(""a"", ""b"");
-                    public int Teller { get; private set; }
                 }
             ";
 
@@ -145,33 +146,18 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Fields
             return new Analyzer();
         }
 
-        DiagnosticResult[] GetExpectedFailures(int firstFailLine = 6, int secondFailLine = 7, int thirdFailLine = 8)
+        DiagnosticResult[] GetExpectedFailures(int firstFailLine = 6)
         {
+            var analyzer = new Analyzer();
             var firstFailure = new DiagnosticResult
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
+                Id = analyzer.Rule.Id,
+                Message = (string)analyzer.Rule.MessageFormat,
+                Severity = analyzer.Rule.DefaultSeverity,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", firstFailLine, 21) }
             };
 
-            var secondFailure = new DiagnosticResult
-            {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", secondFailLine, 21) }
-            };
-
-            var thirdFailure = new DiagnosticResult
-            {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", thirdFailLine, 21) }
-            };
-
-            return new[] { firstFailure, secondFailure, thirdFailure };
+            return new[] { firstFailure };
         }
     }
 }

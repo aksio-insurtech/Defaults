@@ -40,12 +40,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
         }
 
         [Fact]
-        public void DelegatesBeforeFields()
+        public void EventsBeforeFields()
         {
             const string content = @"
                 class Blabla
                 {
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
 
                     public int _teller = 0;
                 }
@@ -55,12 +55,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
         }
 
         [Fact]
-        public void DelegatesBeforeProperties()
+        public void EventsBeforeProperties()
         {
             const string content = @"
                 class Blabla
                 {
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
 
                     public int Teller { get; private set; }
                 }
@@ -70,7 +70,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
         }
 
         [Fact]
-        public void DelegatesBeforeEvents()
+        public void EventsBeforeDelegates()
         {
             const string content = @"
                 class Blabla
@@ -81,18 +81,18 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure(6));
+            VerifyCSharpDiagnostic(content, GetExpectedFailure());
         }
 
         [Fact]
-        public void DelegatesAfterConstructor()
+        public void EventsAfterConstructor()
         {
             const string content = @"
                 class Blabla
                 {
                     public Blabla() { }
                     
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
                 }
             ";
 
@@ -100,14 +100,14 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
         }
 
         [Fact]
-        public void DelegatesAfterFinalizer()
+        public void EventsAfterFinalizer()
         {
             const string content = @"
                 class Blabla
                 {
                     ~Blabla() { }
 
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
                 }
             ";
 
@@ -115,14 +115,14 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
         }
 
         [Fact]
-        public void DelegatesAfterIndexers()
+        public void EventsAfterIndexers()
         {
             const string content = @"
                 class Blabla
                 {
                     public int this[int i] => 42;
 
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
                 }
             ";
 
@@ -130,14 +130,14 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
         }
 
         [Fact]
-        public void DelegatesAfterMethods()
+        public void EventsAfterMethods()
         {
             const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => throw new NotImplementedException();
 
-                    public delegate void SomethingHappenedEventHandler(object sender, object args);
+                    public event EventHandler SomethingHappened;
                 }
             ";
 
@@ -158,12 +158,12 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Events
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Delegates.Analyzer();
+            return new Analyzer();
         }
 
         DiagnosticResult GetExpectedFailure(int failLine = 4)
         {
-            var analyzer = new Delegates.Analyzer();
+            var analyzer = new Analyzer();
             return new DiagnosticResult
             {
                 Id = analyzer.Rule.Id,
