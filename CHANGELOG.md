@@ -1,3 +1,11 @@
+# [v1.2.0] - 2021-12-6 [PR: #32](https://github.com/aksio-system/Defaults/pull/32)
+
+## Summary
+
+Aksios version of Stylecop rule SA1201: ElementsMustAppearInTheCorrectOrder, as we want a slightly different ordering of the elements.
+
+This does not consider interfaces, enums, structs or classes within a class. That needs to be discussed.
+
 # [v1.1.19] - 2021-11-23 [PR: #31](https://github.com/aksio-system/Defaults/pull/31)
 
 ### Fixed
