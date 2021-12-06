@@ -1,21 +1,5 @@
 namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
 {
-#error meh Fields/Properties
-#error meh Delegates
-#error meh Events
-#error meh Constructors
-#error meh Finalizers(Destructors)
-#error meh Indexers
-#error meh Methods
-#error meh 
-#error meh * de under her ønsker vi vel ikke i klasser?
-#error meh Interfaces
-#error meh Enums
-#error meh Structs
-#error meh Classes* (inkl.records)
-
-#error testingen og dokumentasjon må ordnes, akkurat nå er det mange kopier av samme fil! Kan jeg generalisere her?
-
     public class UnitTests: CodeFixVerifier
     {
         [Fact]
