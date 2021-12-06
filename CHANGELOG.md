@@ -1,3 +1,10 @@
+# [v1.2.1] - 2021-12-6 [PR: #33](https://github.com/aksio-system/Defaults/pull/33)
+
+### Fixed
+
+It tried to instansiate the baseclassf or the new tests, which failed.
+Moved the DiagnosticAnalyzerAttribute to implementing classes to fix this.
+
 # [v1.2.0] - 2021-12-6 [PR: #32](https://github.com/aksio-system/Defaults/pull/32)
 
 ## Summary
