@@ -3,6 +3,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
     /// <summary>
     /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
     /// </summary>
+    [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Analyzer: ElementsMustAppearInTheCorrectOrderAnalyzer
     {
         /// <summary>
