@@ -8,6 +8,7 @@
         <Rule Id="SA1000" Action="None" />
         <Rule Id="SA1009" Action="None" />
         <Rule Id="SA1101" Action="None" />
+        <Rule Id="SA1115" Action="None" />
         <Rule Id="SA1128" Action="None" />
         <Rule Id="SA1200" Action="Error" />
         <Rule Id="SA1201" Action="None" />
@@ -68,6 +69,7 @@
         <Rule Id="CA1822" Action="None" />
         <Rule Id="CA1829" Action="Error" />
         <Rule Id="CA1834" Action="None" />
+        <Rule Id="CA2007" Action="None" /> <!-- ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
         <Rule Id="CA2016" Action="None" />
         <Rule Id="CA2211" Action="None" />
         <Rule Id="CA2225" Action="None" />
@@ -78,6 +80,7 @@
         <Rule Id="RCS1018" Action="None" />
         <Rule Id="RCS1057" Action="Error" />
         <Rule Id="RCS1079" Action="None" />
+        <Rule Id="RCS1019" Action="None" /> <!-- ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
         <Rule Id="RCS1158" Action="None" />
         <Rule Id="RCS1163" Action="None" />
         <Rule Id="RCS1182" Action="Error" />
