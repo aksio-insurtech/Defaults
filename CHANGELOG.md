@@ -1,3 +1,12 @@
+# [v1.2.3] - 2021-12-14 [PR: #35](https://github.com/aksio-system/Defaults/pull/35)
+
+### Fixed
+
+- Disabling SA1115 - allowing empty lines between arguments. This to allow for comments related to arguments being passed in and not having to condensed of a view on it.
+- Disabling warning related to having to add `ConfigureAwait()` to async calls (CS0012, RCS1090, CA2007). If running in an app model context, which eseentially we will do for all our stuff - this is just unwanted and not needed noise. Read more here: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse.
+
+
+
 # [v1.2.2] - 2021-12-14 [PR: #34](https://github.com/aksio-system/Defaults/pull/34)
 
 ### Fixed
