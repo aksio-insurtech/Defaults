@@ -16,7 +16,7 @@
 
     <LangVersion>10.0</LangVersion>
 
-    <NoWarn>$(NoWarn);NU5105;NU5118</NoWarn>
+    <NoWarn>$(NoWarn);NU5105;NU5118;CS0012</NoWarn> <!-- CS0012 - ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
