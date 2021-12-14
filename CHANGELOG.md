@@ -1,3 +1,10 @@
+# [v1.2.4] - 2021-12-14 [PR: #36](https://github.com/aksio-system/Defaults/pull/36)
+
+### Fixed
+
+- Disable CA2234 - disallowing specific API call. Weird rule - why not mark this as obsolete if its not a desirable API call.
+
+
 # [v1.2.3] - 2021-12-14 [PR: #35](https://github.com/aksio-system/Defaults/pull/35)
 
 ### Fixed
