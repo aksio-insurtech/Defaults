@@ -74,6 +74,7 @@
         <Rule Id="CA2211" Action="None" />
         <Rule Id="CA2225" Action="None" />
         <Rule Id="CA2227" Action="None" />
+        <Rule Id="CA2234" Action="None" />
         <Rule Id="CA2252" Action="None" />
     </Rules>
     <Rules AnalyzerId="Roslynator.CSharp.Analyzers" RuleNamespace="Roslynator.CSharp.Analyzers">
