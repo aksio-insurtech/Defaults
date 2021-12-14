@@ -1,3 +1,11 @@
+# [v1.2.2] - 2021-12-14 [PR: #34](https://github.com/aksio-system/Defaults/pull/34)
+
+### Fixed
+
+- Disabling SA1201 since we now have our own rule for ordering.
+
+
+
 # [v1.2.1] - 2021-12-6 [PR: #33](https://github.com/aksio-system/Defaults/pull/33)
 
 ### Fixed
