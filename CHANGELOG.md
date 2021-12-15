@@ -1,34 +1,33 @@
 # [v1.4.5] - 2021-12-15 [PR: #47](https://github.com/aksio-system/Defaults/pull/47)
 
-\#\#\# Fixed
+### Fixed
 
-\- Disabling MA0004 that suggests adding .ConfigureAwait() for contexts that can be left.
+- Disabling MA0004 that suggests adding .ConfigureAwait() for contexts that can be left.
 
 
 # [v1.4.4] - 2021-12-15 [PR: #46](https://github.com/aksio-system/Defaults/pull/46)
 
-\#\#\# Fixed
+### Fixed
 
-\- Disabling MA0002 rule.
+- Disabling MA0002 rule.
 
 
 # [v1.4.3] - 2021-12-15 [PR: #45](https://github.com/aksio-system/Defaults/pull/45)
 
-\#\# Summary
+## Summary
 
 Disabling some of the rules from the [Meziantou Analyzers](https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs).
 
-\#\#\# Fixed
+### Fixed
 
 - Disable MA0003, MA0006, MA0007, MA00025, MA0040.
 
 
-
 # [v1.4.2] - 2021-12-15 [PR: #44](https://github.com/aksio-system/Defaults/pull/44)
 
-\#\#\# Fixed
+### Fixed
 
-\- Disabling [IDE1006](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/naming-rules#rule-id-ide1006-naming-rule-violation), which effectively nulled out anything trying to use the `.editorconfig` for diagnostics & style rules.
+- Disabling [IDE1006](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/naming-rules#rule-id-ide1006-naming-rule-violation), which effectively nulled out anything trying to use the `.editorconfig` for diagnostics & style rules.
 
 
 # [v1.4.1] - 2021-12-15 [PR: #43](https://github.com/aksio-system/Defaults/pull/43)
