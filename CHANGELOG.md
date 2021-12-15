@@ -1,3 +1,10 @@
+# [v1.4.4] - 2021-12-15 [PR: #46](https://github.com/aksio-system/Defaults/pull/46)
+
+\#\#\# Fixed
+
+\- Disabling MA0002 rule.
+
+
 # [v1.4.3] - 2021-12-15 [PR: #45](https://github.com/aksio-system/Defaults/pull/45)
 
 \#\# Summary
