@@ -1,3 +1,10 @@
+# [v1.4.8] - 2021-12-15 [PR: #50](https://github.com/aksio-system/Defaults/pull/50)
+
+### Fixed
+
+- Fixing how the `.globalconfig` is included according to documentation found [here](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#naming).
+
+
 # [v1.4.7] - 2021-12-15 [PR: #49](https://github.com/aksio-system/Defaults/pull/49)
 
 ### Fixed
