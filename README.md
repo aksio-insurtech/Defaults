@@ -49,6 +49,9 @@ These props files configures a default behavior for builds with a [common set of
 [stylecop rules](./Source/Defaults/stylecop.json). In addition to this it provides a set of default NuGet metadata properties to ease
 the creation of projects that are to be published as NuGet packages.
 
+With the introduction of [Global AnalyserConfig](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig) one can
+take typical things one would hav ein `.editorconfig` files and package for reuse. This project does so as well by adding
+
 ### Packages
 
 NuGet packages that are published on the public NuGet feed should adhere to the defined [best practices](https://docs.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices).

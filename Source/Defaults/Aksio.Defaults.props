@@ -36,6 +36,8 @@
     <RunAnalyzers>True</RunAnalyzers>
 
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+
+    <GlobalAnalyzerConfigFiles>$(MSBuildThisFileDirectory).editorconfig</GlobalAnalyzerConfigFiles>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
