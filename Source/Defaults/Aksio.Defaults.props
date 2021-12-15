@@ -37,6 +37,7 @@
 
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <GlobalAnalyzerConfigFiles>$(MSBuildThisFileDirectory).editorconfig</GlobalAnalyzerConfigFiles>
   </PropertyGroup>
 
