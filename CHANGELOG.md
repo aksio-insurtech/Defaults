@@ -1,3 +1,10 @@
+# [v1.3.1] - 2021-12-15 [PR: #41](https://github.com/aksio-system/Defaults/pull/41)
+
+### Fixed
+
+- Making sure we get to publish with `dot` files (e.g. .editorconfig)
+
+
 # [v1.3.0] - 2021-12-15 [PR: #40](https://github.com/aksio-system/Defaults/pull/40)
 
 ### Added
