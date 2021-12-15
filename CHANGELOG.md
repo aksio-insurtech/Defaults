@@ -1,3 +1,10 @@
+# [v1.4.5] - 2021-12-15 [PR: #47](https://github.com/aksio-system/Defaults/pull/47)
+
+\#\#\# Fixed
+
+\- Disabling MA0004 that suggests adding .ConfigureAwait() for contexts that can be left.
+
+
 # [v1.4.4] - 2021-12-15 [PR: #46](https://github.com/aksio-system/Defaults/pull/46)
 
 \#\#\# Fixed
