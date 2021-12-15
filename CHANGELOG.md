@@ -1,3 +1,10 @@
+# [v1.2.6] - 2021-12-15 [PR: #39](https://github.com/aksio-system/Defaults/pull/39)
+
+### Fixed
+
+- Disabling CA5394 - Random is random enough for our purposes and for cryptography we would use a cryptography API.
+
+
 # [v1.2.5] - 2021-12-15 [PR: #38](https://github.com/aksio-system/Defaults/pull/38)
 
 ### Fixed
