@@ -1,3 +1,15 @@
+# [v1.4.3] - 2021-12-15 [PR: #45](https://github.com/aksio-system/Defaults/pull/45)
+
+\#\# Summary
+
+Disabling some of the rules from the [Meziantou Analyzers](https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs).
+
+\#\#\# Fixed
+
+- Disable MA0003, MA0006, MA0007, MA00025, MA0040.
+
+
+
 # [v1.4.2] - 2021-12-15 [PR: #44](https://github.com/aksio-system/Defaults/pull/44)
 
 \#\#\# Fixed
