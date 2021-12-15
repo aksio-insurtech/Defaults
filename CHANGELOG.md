@@ -1,3 +1,19 @@
+# [v1.4.0] - 2021-12-15 [PR: #42](https://github.com/aksio-system/Defaults/pull/42)
+
+## Summary
+
+Trying to 
+
+### Added
+
+- Added `<EnforceCodeStyleInBuild/>` for props files.
+- Added explicit package reference to `Microsoft.CodeAnalysis.CSharp.CodeStyle`.
+
+### Fixed
+
+- Setting severity to error for C# naming rules.
+
+
 # [v1.3.1] - 2021-12-15 [PR: #41](https://github.com/aksio-system/Defaults/pull/41)
 
 ### Fixed
