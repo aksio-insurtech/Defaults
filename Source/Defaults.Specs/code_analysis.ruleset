@@ -122,7 +122,9 @@
         <Rule Id="MA0004" Action="None" />
         <Rule Id="MA0006" Action="None" />
         <Rule Id="MA0007" Action="None" />
+        <Rule Id="MA0011" Action="None" />
         <Rule Id="MA0025" Action="None" />
         <Rule Id="MA0040" Action="None" />
+        <Rule Id="MA0051" Action="None" />
     </Rules>
 </RuleSet>
