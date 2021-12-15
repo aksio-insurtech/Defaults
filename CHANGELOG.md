@@ -1,3 +1,9 @@
+# [v1.2.5] - 2021-12-15 [PR: #38](https://github.com/aksio-system/Defaults/pull/38)
+
+### Fixed
+
+- Disabling CA2000 for specs. Not requiring using statements in specs.
+
 # [v1.2.4] - 2021-12-14 [PR: #36](https://github.com/aksio-system/Defaults/pull/36)
 
 ### Fixed
