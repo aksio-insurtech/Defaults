@@ -50,7 +50,8 @@ These props files configures a default behavior for builds with a [common set of
 the creation of projects that are to be published as NuGet packages.
 
 With the introduction of [Global AnalyserConfig](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig) one can
-take typical things one would hav ein `.editorconfig` files and package for reuse. This project does so as well by adding
+take typical things one would hav ein `.editorconfig` files and package for reuse. This project does so as well by adding a global editorconfig.
+For examples on how these can be set up look [here](https://github.com/dotnet/roslyn/blob/main/.editorconfig) or [here](https://gist.github.com/bryanknox/e07027d4d32e0288e488b918545786c8).
 
 ### Packages
 
