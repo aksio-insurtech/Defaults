@@ -38,8 +38,11 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <GlobalAnalyzerConfigFiles>$(MSBuildThisFileDirectory).editorconfig</GlobalAnalyzerConfigFiles>
   </PropertyGroup>
+
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory).globalconfig"/>
+  </ItemGroup>
 
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
     <VersionInPathIndex>$([MSBuild]::Subtract($(MSBuildThisFileDirectory.Split('\\').Length),3))</VersionInPathIndex>
