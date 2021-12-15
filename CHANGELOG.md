@@ -1,3 +1,10 @@
+# [v1.4.1] - 2021-12-15 [PR: #43](https://github.com/aksio-system/Defaults/pull/43)
+
+### Fixed
+
+- Upgrading all 3rd parties.
+
+
 # [v1.4.0] - 2021-12-15 [PR: #42](https://github.com/aksio-system/Defaults/pull/42)
 
 ## Summary
