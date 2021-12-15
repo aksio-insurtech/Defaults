@@ -45,9 +45,16 @@ and [common project properties](https://docs.microsoft.com/en-us/visualstudio/ms
 It takes advantage of a feature in MSBuild that by convention will include props from a file named the same as its package name in any
 consumers. In our case this is the [Aksio.Defaults.props](./Source/Defaults.Aksio.Defaults.props) and [Aksio.Defaults.Specs.props](./Source/Defaults.Aksio.Defaults.Specs.props).
 
-These props files configures a default behavior for builds with a [common set of static code analysis rules](./Source/Defaults/code_analysis.ruleset) and
+### Static Code Analysis
+
+The props files configures a default behavior for builds with a [common set of static code analysis rules](./Source/Defaults/code_analysis.ruleset) and
 [stylecop rules](./Source/Defaults/stylecop.json). In addition to this it provides a set of default NuGet metadata properties to ease
 the creation of projects that are to be published as NuGet packages.
+
+Read more about the [ruleset format](https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md) and the default [rulset](https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019).
+In addition, we leverage a 3rd party ruleset - read more about the different rules [here](https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs).
+
+This repository also adds custom Aksio rules. Read the [documentation](./Documentation/CodeAnalysis/Analyzers/overview.md) on the different rules.
 
 With the introduction of [Global AnalyserConfig](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig) one can
 take typical things one would hav ein `.editorconfig` files and package for reuse. This project does so as well by adding a global editorconfig.
