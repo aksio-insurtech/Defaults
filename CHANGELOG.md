@@ -1,3 +1,10 @@
+# [v1.4.2] - 2021-12-15 [PR: #44](https://github.com/aksio-system/Defaults/pull/44)
+
+\#\#\# Fixed
+
+\- Disabling [IDE1006](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/naming-rules#rule-id-ide1006-naming-rule-violation), which effectively nulled out anything trying to use the `.editorconfig` for diagnostics & style rules.
+
+
 # [v1.4.1] - 2021-12-15 [PR: #43](https://github.com/aksio-system/Defaults/pull/43)
 
 ### Fixed
