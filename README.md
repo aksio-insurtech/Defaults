@@ -2,6 +2,7 @@
 
 [![Build](https://github.com/aksio-system/Defaults/actions/workflows/build.yml/badge.svg)](https://github.com/aksio-system/Defaults/actions/workflows/build.yml)
 [![Nuget](https://img.shields.io/nuget/v/aksio.defaults)](http://nuget.org/packages/aksio.defaults)
+[![Nuget](https://img.shields.io/nuget/v/aksio.defaults.specs)](http://nuget.org/packages/aksio.defaults.specs)
 
 This repository contains the default setup for projects with properties for how they should build
 and also static code analysis for projects.
@@ -37,6 +38,9 @@ with package references.
 > Note: The `PrivateAssets="All"` is important to not let the rules and setup affect any consumer of your package.
 
 By using a wildcard for minor in the version of the packages, you're guaranteed to have the latest of the package.
+
+For your spec projects there is a second package with specific rules for that context as we tend to write the
+specs differently; `Aksio.Defaults.Specs`.
 
 ### MSBuild
 
