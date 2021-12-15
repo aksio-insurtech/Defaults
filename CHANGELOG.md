@@ -1,3 +1,9 @@
+# [v1.3.0] - 2021-12-15 [PR: #40](https://github.com/aksio-system/Defaults/pull/40)
+
+### Added
+
+- Adding a global `.editorconfig` file to get all of our naming styles standardized for projects. Leveraging the [GlobalAnalyzerConfig](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig) option
+
 # [v1.2.6] - 2021-12-15 [PR: #39](https://github.com/aksio-system/Defaults/pull/39)
 
 ### Fixed
