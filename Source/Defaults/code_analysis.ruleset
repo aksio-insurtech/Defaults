@@ -93,6 +93,7 @@
     <Rules AnalyzerId="Meziantou.Analyzer" RuleNamespace="Meziantou.Analyzer">
         <Rule Id="MA0002" Action="None" />
         <Rule Id="MA0003" Action="None" />
+        <Rule Id="MA0004" Action="None" />
         <Rule Id="MA0006" Action="None" />
         <Rule Id="MA0007" Action="None" />
         <Rule Id="MA0025" Action="None" />
