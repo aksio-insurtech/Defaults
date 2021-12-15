@@ -1,3 +1,9 @@
+# [v1.4.7] - 2021-12-15 [PR: #49](https://github.com/aksio-system/Defaults/pull/49)
+
+### Fixed
+
+- Disable naming rules IDE1006 for specs.
+
 # [v1.4.5] - 2021-12-15 [PR: #47](https://github.com/aksio-system/Defaults/pull/47)
 
 ### Fixed
