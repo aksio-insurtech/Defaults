@@ -42,7 +42,7 @@
         <Content Include="code_analysis.ruleset" PackagePath="build\" />
         <Content Include="../Defaults/code_analysis.ruleset" PackagePath="build\code_analysis_base.ruleset" />
         <Content Include="../Defaults/stylecop.json" PackagePath="build\" />
-        <Content Include="../Defaults/.editorconfig" PackagePath="build\" />
+        <Content Include="../Defaults/.globalconfig" PackagePath="build\" />
         <Content Remove="bin\**" CopyToPublishDirectory="Never" />
     </ItemGroup>
 

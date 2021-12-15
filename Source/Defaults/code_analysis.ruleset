@@ -38,6 +38,7 @@
         <Rule Id="IDE0072" Action="None" />
         <Rule Id="IDE0083" Action="None" />
         <Rule Id="IDE0130" Action="None" />
+        <Rule Id="IDE1006" Action="Error" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
     </Rules>  

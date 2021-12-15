@@ -42,7 +42,7 @@
         <Content Include="../../logo.png" PackagePath="build\" />
         <Content Include="code_analysis.ruleset" PackagePath="build\" />
         <Content Include="stylecop.json" PackagePath="build\" />
-        <Content Include=".editorconfig" PackagePath="build\" />
+        <Content Include=".globalconfig" PackagePath="build\" />
         <Content Remove="bin\**" CopyToPublishDirectory="Never" />
     </ItemGroup>
 
