@@ -1,3 +1,10 @@
+# [v1.4.11] - 2021-12-16 [PR: #53](https://github.com/aksio-system/Defaults/pull/53)
+
+### Fixed
+
+- Disabling MA0011 and MA0053
+
+
 # [v1.4.10] - 2021-12-16 [PR: #52](https://github.com/aksio-system/Defaults/pull/52)
 
 ### Fixed
