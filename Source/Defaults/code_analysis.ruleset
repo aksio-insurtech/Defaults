@@ -104,6 +104,7 @@
         <Rule Id="MA0026" Action="None" />
         <Rule Id="MA0038" Action="None" />
         <Rule Id="MA0040" Action="None" />
+        <Rule Id="MA0051" Action="None" />
         <Rule Id="MA0053" Action="None" />
         <Rule Id="MA0054" Action="None" />
         <Rule Id="MA0058" Action="None" />
