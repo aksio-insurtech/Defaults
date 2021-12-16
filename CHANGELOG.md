@@ -1,3 +1,10 @@
+# [v1.4.9] - 2021-12-16 [PR: #51](https://github.com/aksio-system/Defaults/pull/51)
+
+### Fixed
+
+- Disable rules IDE0160, CA2000, MA0026, MA0054, MA0058, MA0075.
+
+
 # [v1.4.8] - 2021-12-15 [PR: #50](https://github.com/aksio-system/Defaults/pull/50)
 
 ### Fixed
