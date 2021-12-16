@@ -38,6 +38,7 @@
         <Rule Id="IDE0072" Action="None" />
         <Rule Id="IDE0083" Action="None" />
         <Rule Id="IDE0130" Action="None" />
+        <Rule Id="IDE0160" Action="None" />
         <Rule Id="IDE1006" Action="Error" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
@@ -70,6 +71,7 @@
         <Rule Id="CA1822" Action="None" />
         <Rule Id="CA1829" Action="Error" />
         <Rule Id="CA1834" Action="None" />
+        <Rule Id="CA2000" Action="None" />
         <Rule Id="CA2007" Action="None" /> <!-- ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
         <Rule Id="CA2016" Action="None" />
         <Rule Id="CA2211" Action="None" />
@@ -98,6 +100,10 @@
         <Rule Id="MA0006" Action="None" />
         <Rule Id="MA0007" Action="None" />
         <Rule Id="MA0025" Action="None" />
+        <Rule Id="MA0026" Action="None" />
         <Rule Id="MA0040" Action="None" />
+        <Rule Id="MA0054" Action="None" />
+        <Rule Id="MA0058" Action="None" />
+        <Rule Id="MA0075" Action="None" />
     </Rules>
 </RuleSet>

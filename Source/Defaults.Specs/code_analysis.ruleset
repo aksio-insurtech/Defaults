@@ -3,6 +3,7 @@
     <!-- Rule Set Format : https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md -->
     <!-- Rule set reference : https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019 -->
     <!-- Rule set groups : https://docs.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2019 -->
+    <!-- Meziantou Rules : https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs -->
 
     <Include Path="code_analysis_base.ruleset" Action="Default"/>
    
@@ -51,6 +52,7 @@
         <Rule Id="IDE0072" Action="None" />
         <Rule Id="IDE0083" Action="None" />
         <Rule Id="IDE0130" Action="None" />
+        <Rule Id="IDE0160" Action="None" />
         <Rule Id="IDE1006" Action="None" />
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
@@ -123,9 +125,11 @@
         <Rule Id="MA0004" Action="None" />
         <Rule Id="MA0006" Action="None" />
         <Rule Id="MA0007" Action="None" />
-        <Rule Id="MA0011" Action="None" />
         <Rule Id="MA0025" Action="None" />
+        <Rule Id="MA0026" Action="None" />
         <Rule Id="MA0040" Action="None" />
-        <Rule Id="MA0051" Action="None" />
+        <Rule Id="MA0054" Action="None" />
+        <Rule Id="MA0058" Action="None" />
+        <Rule Id="MA0075" Action="None" />
     </Rules>
 </RuleSet>
