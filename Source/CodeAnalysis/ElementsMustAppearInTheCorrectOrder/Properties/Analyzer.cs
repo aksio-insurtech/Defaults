@@ -10,7 +10,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
         public override DiagnosticDescriptor Rule => new(
             id: "AS0010",
             title: "PropertiesMustAppearInTheCorrectOrder",
-            messageFormat: "Properties must before delegates, events, constructors, finalizers, indexers and methods",
+            messageFormat: "Properties must come before delegates, events, constructors, finalizers, indexers and methods",
             category: "Exceptions",
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true,
