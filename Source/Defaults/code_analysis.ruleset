@@ -100,10 +100,13 @@
         <Rule Id="MA0006" Action="None" />
         <Rule Id="MA0007" Action="None" />
         <Rule Id="MA0011" Action="None" />
+        <Rule Id="MA0015" Action="None" />
+        <Rule Id="MA0018" Action="None" />
         <Rule Id="MA0025" Action="None" />
         <Rule Id="MA0026" Action="None" />
         <Rule Id="MA0038" Action="None" />
         <Rule Id="MA0040" Action="None" />
+        <Rule Id="MA0049" Action="None" />
         <Rule Id="MA0051" Action="None" />
         <Rule Id="MA0053" Action="None" />
         <Rule Id="MA0054" Action="None" />
