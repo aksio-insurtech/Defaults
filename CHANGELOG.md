@@ -1,3 +1,10 @@
+# [v1.5.1] - 2022-1-14 [PR: #56](https://github.com/aksio-insurtech/Defaults/pull/56)
+
+### Fixed
+
+- Disable MA0015, MA0018, MA0049
+
+
 # [v1.5.0] - 2022-1-14 [PR: #55](https://github.com/aksio-insurtech/Defaults/pull/55)
 
 ### Changed
