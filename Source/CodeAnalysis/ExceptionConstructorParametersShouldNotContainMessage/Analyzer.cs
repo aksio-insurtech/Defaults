@@ -1,7 +1,7 @@
 ﻿namespace Aksio.CodeAnalysis.ExceptionConstructorParametersShouldNotContainMessage
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="DiagnosticAnalyzer"/> that requires exceptions to not use message as a parameter name - tends to indicate that it is a generic exception.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Analyzer : DiagnosticAnalyzer
@@ -9,7 +9,7 @@
         /// <summary>
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
-        public static readonly DiagnosticDescriptor Rule = new (
+        public static readonly DiagnosticDescriptor Rule = new(
              id: "AS0006",
              title: "ExceptionConstructorParametersShouldNotContainMessage",
              messageFormat: "An argument of an exception with the name 'message' in it indicates its a generic exception and output string ownership is wrong",

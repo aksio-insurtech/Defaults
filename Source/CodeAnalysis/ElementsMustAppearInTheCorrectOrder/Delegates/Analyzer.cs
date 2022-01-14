@@ -1,19 +1,12 @@
 namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Delegates
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="ElementsMustAppearInTheCorrectOrderAnalyzer"/> that requires delegates in a specific order.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class Analyzer: ElementsMustAppearInTheCorrectOrderAnalyzer
+    public class Analyzer : ElementsMustAppearInTheCorrectOrderAnalyzer
     {
-        /// <summary>
-        /// The element kind we are checking the ordering for.
-        /// </summary>
-        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DelegateDeclaration;
-
-        /// <summary>
-        /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
-        /// </summary>
+        /// <inheritdoc/>
         public override DiagnosticDescriptor Rule => new(
             id: "AS0011",
             title: "DelegateElementsMustAppearInTheCorrectOrder",
@@ -25,5 +18,10 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Delegates
             helpLinkUri: string.Empty,
             customTags: Array.Empty<string>()
         );
+
+        /// <summary>
+        /// The element kind we are checking the ordering for.
+        /// </summary>
+        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DelegateDeclaration;
     }
 }

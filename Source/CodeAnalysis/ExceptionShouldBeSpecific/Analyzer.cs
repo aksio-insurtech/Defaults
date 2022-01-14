@@ -1,7 +1,7 @@
 ﻿namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="DiagnosticAnalyzer"/> that requires one to now throw a generic system exception.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Analyzer : DiagnosticAnalyzer

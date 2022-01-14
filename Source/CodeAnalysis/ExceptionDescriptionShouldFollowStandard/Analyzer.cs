@@ -1,7 +1,7 @@
 ﻿namespace Aksio.CodeAnalysis.ExceptionDescriptionShouldFollowStandard
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="DiagnosticAnalyzer"/> that requires a specific phrase for Exception API documentation.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Analyzer : DiagnosticAnalyzer
