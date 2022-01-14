@@ -131,6 +131,7 @@
         <Rule Id="MA0018" Action="None" />
         <Rule Id="MA0025" Action="None" />
         <Rule Id="MA0026" Action="None" />
+        <Rule Id="MA0031" Action="None" />
         <Rule Id="MA0038" Action="None" />
         <Rule Id="MA0040" Action="None" />
         <Rule Id="MA0046" Action="None" />
