@@ -10,7 +10,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Constructors
         public override DiagnosticDescriptor Rule => new(
             id: "AS0013",
             title: "ConstructorsMustAppearInTheCorrectOrder",
-            messageFormat: "Constructors must after fields/properties/delegates/events, and before finalizers/indexers/methods",
+            messageFormat: "Constructors must come after fields/properties/delegates/events, and before finalizers/indexers/methods",
             category: "Exceptions",
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true,

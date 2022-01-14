@@ -10,7 +10,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Finalizers
         public override DiagnosticDescriptor Rule => new(
             id: "AS0014",
             title: "FinalizerElementsMustAppearInTheCorrectOrder",
-            messageFormat: "Finalizers must after fields/properties/delegates/events/constructors and before indexers/methods",
+            messageFormat: "Finalizers must come after fields/properties/delegates/events/constructors and before indexers/methods",
             category: "Exceptions",
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true,

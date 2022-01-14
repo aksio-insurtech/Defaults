@@ -10,7 +10,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
         public override DiagnosticDescriptor Rule => new(
             id: "AS0016",
             title: "MethodElementsMustAppearInTheCorrectOrder",
-            messageFormat: "Methods must after fields/properties/delegates/events/constructors/indexers",
+            messageFormat: "Methods must come after fields/properties/delegates/events/constructors/indexers",
             category: "Exceptions",
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true,
