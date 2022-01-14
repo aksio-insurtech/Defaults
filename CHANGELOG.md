@@ -1,3 +1,10 @@
+# [v1.5.4] - 2022-1-14 [PR: #59](https://github.com/aksio-insurtech/Defaults/pull/59)
+
+### Fixed
+
+- Improve error messages for ordering rules to include the word **come** in the context of *before* and *after*.
+
+
 # [v1.5.3] - 2022-1-14 [PR: #58](https://github.com/aksio-insurtech/Defaults/pull/58)
 
 ### Fixed
