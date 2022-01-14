@@ -49,6 +49,35 @@ namespace Aksio.CodeAnalysis.SealedNotAllowed
             VerifyCSharpDiagnostic(content, expected);
         }
 
+        [Fact]
+        public void WithSealedAttribute()
+        {
+            const string content = @"
+                using System;
+
+                namespace MyNamespace
+                {
+                    public sealed class MyClass : Attribute
+                    {
+
+                    }
+                }       
+            ";
+
+            var expected = new DiagnosticResult
+            {
+                Id = Analyzer.Rule.Id,
+                Message = (string)Analyzer.Rule.MessageFormat,
+                Severity = Analyzer.Rule.DefaultSeverity,
+                Locations = new[]
+                {
+                    new DiagnosticResultLocation("Test0.cs", 6, 28)
+                }
+            };
+
+            VerifyCSharpDiagnostic(content);
+        }
+
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
             return new Analyzer();

@@ -9,7 +9,7 @@
         /// <summary>
         /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
-        public static readonly DiagnosticDescriptor Rule = new (
+        public static readonly DiagnosticDescriptor Rule = new(
              id: "AS0003",
              title: "SealedNotAllowed",
              messageFormat: "The keyword 'sealed' unnecessarily locks down code from inheritance - very rare occasions is this a problem",
@@ -37,6 +37,7 @@
         void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context)
         {
             var classDeclaration = context.Node as ClassDeclarationSyntax;
+            if (classDeclaration.IsAttribute(context.SemanticModel)) return;
             var sealedKeyword = classDeclaration.Modifiers.SingleOrDefault(_ => _.IsKind(SyntaxKind.SealedKeyword));
             if (sealedKeyword == default) return;
 
