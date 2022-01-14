@@ -1,7 +1,7 @@
 ﻿namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="DiagnosticAnalyzer"/> that simplifies exceptions and requiring them to not be used for multiple purposes.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Analyzer : DiagnosticAnalyzer

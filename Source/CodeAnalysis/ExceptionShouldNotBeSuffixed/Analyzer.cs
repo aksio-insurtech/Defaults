@@ -1,7 +1,7 @@
 ﻿namespace Aksio.CodeAnalysis.ExceptionShouldNotBeSuffixed
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="DiagnosticAnalyzer"/> that does requires one to now add a suffix of 'Exception' to an exception type - indicating possibly bad naming.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Analyzer : DiagnosticAnalyzer

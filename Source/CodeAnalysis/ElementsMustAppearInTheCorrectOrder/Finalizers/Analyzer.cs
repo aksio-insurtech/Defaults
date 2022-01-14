@@ -1,19 +1,12 @@
 namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Finalizers
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents a <see cref="ElementsMustAppearInTheCorrectOrderAnalyzer"/> that requires finalizers in a specific order.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class Analyzer: ElementsMustAppearInTheCorrectOrderAnalyzer
+    public class Analyzer : ElementsMustAppearInTheCorrectOrderAnalyzer
     {
-        /// <summary>
-        /// The element kind we are checking the ordering for.
-        /// </summary>
-        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DestructorDeclaration;
-
-        /// <summary>
-        /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
-        /// </summary>
+        /// <inheritdoc/>
         public override DiagnosticDescriptor Rule => new(
             id: "AS0014",
             title: "FinalizerElementsMustAppearInTheCorrectOrder",
@@ -25,5 +18,8 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Finalizers
             helpLinkUri: string.Empty,
             customTags: Array.Empty<string>()
         );
+
+        /// <inheritdoc/>
+        protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.DestructorDeclaration;
     }
 }

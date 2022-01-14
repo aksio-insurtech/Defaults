@@ -3,7 +3,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <NoWarn>CS1591;RCS1090;CA2252;CS8632;RCS1217</NoWarn>
+        <NoWarn>$(NoWarn);CS1591;RCS1090;CA2252;CS8632;RCS1217;CA1822;RCS1018</NoWarn>
         <Nullable>enable</Nullable>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <ImplicitUsings>true</ImplicitUsings>

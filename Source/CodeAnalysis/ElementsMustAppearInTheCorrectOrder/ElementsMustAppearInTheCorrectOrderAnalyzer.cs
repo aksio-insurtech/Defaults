@@ -1,20 +1,15 @@
 namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents an abstract base <see cref="DiagnosticAnalyzer"/> for requiring a specific order of an element.
     /// </summary>
-    public abstract class ElementsMustAppearInTheCorrectOrderAnalyzer: DiagnosticAnalyzer
+    public abstract class ElementsMustAppearInTheCorrectOrderAnalyzer : DiagnosticAnalyzer
     {
         /// <inheritdoc/>
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 
         /// <summary>
-        /// The element kind we are checking the ordering for.
-        /// </summary>
-        protected abstract SyntaxKind KindToCheckFor { get; }
-
-        /// <summary>
-        /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
+        /// Gets the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
         /// </summary>
         public abstract DiagnosticDescriptor Rule { get; }
 
@@ -25,6 +20,11 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.RegisterSyntaxNodeAction(ValidateRule, ImmutableArray.Create(SyntaxKind.ClassDeclaration));
         }
+
+        /// <summary>
+        /// Gets the element kind we are checking the ordering for.
+        /// </summary>
+        protected abstract SyntaxKind KindToCheckFor { get; }
 
         void ValidateRule(SyntaxNodeAnalysisContext context)
         {
@@ -63,7 +63,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
                 .ToList();
 
             var elementsThatShouldBeBefore = otherElementTypes.Where(_ => _.ElementOrder < elementOrderToCheckFor).ToList();
-            if (!elementsThatShouldBeBefore.Any())
+            if (elementsThatShouldBeBefore.Count == 0)
             {
                 return 0;
             }
@@ -79,7 +79,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
                 .ToList();
 
             var elementsThatShouldBeAfter = kindAndPosition.Where(_ => _.ElementOrder > elementOrderToCheckFor).ToList();
-            if (!elementsThatShouldBeAfter.Any())
+            if (elementsThatShouldBeAfter.Count == 0)
             {
                 return classDeclaration.Members.Count;
             }
