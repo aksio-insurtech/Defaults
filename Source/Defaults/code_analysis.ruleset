@@ -47,6 +47,7 @@
     </Rules>
     <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
         <Rule Id="CA1000" Action="None" />
+        <Rule Id="CA1003" Action="None" />
         <Rule Id="CA1031" Action="None" />
         <Rule Id="CA1032" Action="None" />
         <Rule Id="CA1040" Action="None" />
@@ -106,6 +107,7 @@
         <Rule Id="MA0026" Action="None" />
         <Rule Id="MA0038" Action="None" />
         <Rule Id="MA0040" Action="None" />
+        <Rule Id="MA0046" Action="None" />
         <Rule Id="MA0049" Action="None" />
         <Rule Id="MA0051" Action="None" />
         <Rule Id="MA0053" Action="None" />
