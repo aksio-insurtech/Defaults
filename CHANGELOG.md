@@ -1,3 +1,10 @@
+# [v1.5.0] - 2022-1-14 [PR: #55](https://github.com/aksio-insurtech/Defaults/pull/55)
+
+### Changed
+
+- Allowing attributes to be sealed - as they should actually be sealed, which another rule will catch.
+
+
 # [v1.4.12] - 2021-12-16 [PR: #54](https://github.com/aksio-system/Defaults/pull/54)
 
 ### Fixed
