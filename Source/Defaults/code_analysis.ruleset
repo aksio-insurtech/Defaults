@@ -115,5 +115,6 @@
         <Rule Id="MA0054" Action="None" />
         <Rule Id="MA0058" Action="None" />
         <Rule Id="MA0075" Action="None" />
+        <Rule Id="MA0076" Action="None" />
     </Rules>
 </RuleSet>
