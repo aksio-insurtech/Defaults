@@ -1,3 +1,10 @@
+# [v1.5.5] - 2022-1-15 [PR: #60](https://github.com/aksio-insurtech/Defaults/pull/60)
+
+### Fixed
+
+- Disable MA0076
+
+
 # [v1.5.4] - 2022-1-14 [PR: #59](https://github.com/aksio-insurtech/Defaults/pull/59)
 
 ### Fixed
