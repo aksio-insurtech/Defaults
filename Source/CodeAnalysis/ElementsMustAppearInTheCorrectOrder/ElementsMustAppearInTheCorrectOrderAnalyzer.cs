@@ -26,6 +26,11 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
         /// </summary>
         protected abstract SyntaxKind KindToCheckFor { get; }
 
+        /// <summary>
+        /// Gets any modifiers used for filtering for the analyzer to apply its rules for.
+        /// </summary>
+        protected virtual IEnumerable<SyntaxKind> Modifiers => Array.Empty<SyntaxKind>();
+
         void ValidateRule(SyntaxNodeAnalysisContext context)
         {
             if (context.Node is not ClassDeclarationSyntax classDeclaration)
@@ -35,10 +40,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
 
             var elementToCheckFor = KindToElementOrder(KindToCheckFor);
 
-            var currentKindList = classDeclaration.Members
+            var members = classDeclaration.Members
                 .Select((m, pos) => (Member: m, Position: pos))
-                .Where(_ => _.Member.Kind() == KindToCheckFor)
-                .ToList();
+                .Where(_ => _.Member.Kind() == KindToCheckFor);
+
+            members = FilterMembersForSupportedModifiers(members);
+
+            var currentKindList = members.ToList();
 
             // Each instance of the element before the end of the types that should be before it generates an error
             var lastBeforeElementPosition = LastBeforeElementPosition(classDeclaration, elementToCheckFor);
@@ -53,6 +61,25 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, member.GetLocation()));
             }
+        }
+
+        IEnumerable<(MemberDeclarationSyntax Member, int Position)> FilterMembersForSupportedModifiers(IEnumerable<(MemberDeclarationSyntax Member, int Position)> members)
+        {
+            if (Modifiers.Any())
+            {
+                members = members.Where(_ =>
+                {
+                    var contains = false;
+                    foreach (var modifier in Modifiers)
+                    {
+                        contains |= _.Member.Modifiers.Any(modifier);
+                    }
+
+                    return contains;
+                });
+            }
+
+            return members;
         }
 
         int LastBeforeElementPosition(ClassDeclarationSyntax classDeclaration, ElementOrderList elementOrderToCheckFor)
