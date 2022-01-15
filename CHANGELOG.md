@@ -1,3 +1,10 @@
+# [v1.5.7] - 2022-1-15 [PR: #62](https://github.com/aksio-insurtech/Defaults/pull/62)
+
+### Fixed
+
+- Fixing visibility filter for members to be consistent. Adding a new setup for configuring expected visibility on different member types.
+
+
 # [v1.5.6] - 2022-1-15 [PR: #61](https://github.com/aksio-insurtech/Defaults/pull/61)
 
 ### Fixed
