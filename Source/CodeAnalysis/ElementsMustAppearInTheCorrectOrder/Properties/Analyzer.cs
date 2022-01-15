@@ -21,8 +21,5 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
 
         /// <inheritdoc/>
         protected override SyntaxKind KindToCheckFor { get; } = SyntaxKind.PropertyDeclaration;
-
-        /// <inheritdoc/>
-        protected override IEnumerable<SyntaxKind> Modifiers => new[] { SyntaxKind.PublicKeyword };
     }
 }

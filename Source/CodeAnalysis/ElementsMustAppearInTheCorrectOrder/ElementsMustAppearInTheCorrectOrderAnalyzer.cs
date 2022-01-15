@@ -26,11 +26,6 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
         /// </summary>
         protected abstract SyntaxKind KindToCheckFor { get; }
 
-        /// <summary>
-        /// Gets any modifiers used for filtering for the analyzer to apply its rules for.
-        /// </summary>
-        protected virtual IEnumerable<SyntaxKind> Modifiers => Array.Empty<SyntaxKind>();
-
         void ValidateRule(SyntaxNodeAnalysisContext context)
         {
             if (context.Node is not ClassDeclarationSyntax classDeclaration)
@@ -40,13 +35,11 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
 
             var elementToCheckFor = KindToElementOrder(KindToCheckFor);
 
-            var members = classDeclaration.Members
+            var currentKindList = classDeclaration.Members
+                .OnlyWithSupportedModifiersFor(Visibility)
                 .Select((m, pos) => (Member: m, Position: pos))
-                .Where(_ => _.Member.Kind() == KindToCheckFor);
-
-            members = FilterMembersForSupportedModifiers(members);
-
-            var currentKindList = members.ToList();
+                .Where(_ => _.Member.Kind() == KindToCheckFor)
+                .ToList();
 
             // Each instance of the element before the end of the types that should be before it generates an error
             var lastBeforeElementPosition = LastBeforeElementPosition(classDeclaration, elementToCheckFor);
@@ -63,28 +56,10 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
             }
         }
 
-        IEnumerable<(MemberDeclarationSyntax Member, int Position)> FilterMembersForSupportedModifiers(IEnumerable<(MemberDeclarationSyntax Member, int Position)> members)
-        {
-            if (Modifiers.Any())
-            {
-                members = members.Where(_ =>
-                {
-                    var contains = false;
-                    foreach (var modifier in Modifiers)
-                    {
-                        contains |= _.Member.Modifiers.Any(modifier);
-                    }
-
-                    return contains;
-                });
-            }
-
-            return members;
-        }
-
         int LastBeforeElementPosition(ClassDeclarationSyntax classDeclaration, ElementOrderList elementOrderToCheckFor)
         {
             var otherElementTypes = classDeclaration.Members
+                .OnlyWithSupportedModifiersFor(Visibility)
                 .Select((m, pos) => (ElementOrder: KindToElementOrder(m.Kind()), Position: pos))
                 .Where(_ => _.ElementOrder != elementOrderToCheckFor)
                 .ToList();
@@ -101,6 +76,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
         int FirstAfterElementPosition(ClassDeclarationSyntax classDeclaration, ElementOrderList elementOrderToCheckFor)
         {
             var kindAndPosition = classDeclaration.Members
+                .OnlyWithSupportedModifiersFor(Visibility)
                 .Select((m, pos) => (ElementOrder: KindToElementOrder(m.Kind()), Position: pos))
                 .Where(_ => _.ElementOrder != elementOrderToCheckFor)
                 .ToList();
@@ -128,6 +104,15 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
                 SyntaxKind.IndexerDeclaration => ElementOrderList.Indexers,
                 SyntaxKind.MethodDeclaration => ElementOrderList.Methods,
                 _ => ElementOrderList.Undefined
+            };
+        }
+
+        IEnumerable<SyntaxKind> Visibility(MemberDeclarationSyntax member)
+        {
+            return member.Kind() switch
+            {
+                SyntaxKind.PropertyDeclaration => new[] { SyntaxKind.PublicKeyword },
+                _ => Array.Empty<SyntaxKind>()
             };
         }
     }
