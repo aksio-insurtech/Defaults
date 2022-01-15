@@ -33,12 +33,15 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
                         "";
                     }
                     void ØkTeller() => ++Teller;
+
+                    // Private properties should be ignored
+                    int TellerPlus1 => Teller+1;
                 }
             ";
 
             VerifyCSharpDiagnostic(content);
         }
-        
+
         [Fact]
         public void PropertiesAfterDelegates()
         {
@@ -140,6 +143,7 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Properties
 
             VerifyCSharpDiagnostic(content, GetExpectedFailures());
         }
+
 
         [Fact]
         public void AnalyzerDoesNotCrashOnEmptyClass()

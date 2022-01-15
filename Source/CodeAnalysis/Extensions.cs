@@ -28,7 +28,7 @@ namespace Aksio.CodeAnalysis
         {
             var classSymbol = model.GetDeclaredSymbol(classDeclaration);
             var baseType = classSymbol.BaseType;
-            if( baseType == default )
+            if (baseType == default)
             {
                 return false;
             }
