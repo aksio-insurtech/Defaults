@@ -1,3 +1,10 @@
+# [v1.5.6] - 2022-1-15 [PR: #61](https://github.com/aksio-insurtech/Defaults/pull/61)
+
+### Fixed
+
+- Property ordering ignores anything but public properties now. Reason for this is that it ends up conflicting with other rules wanting publics before privates and causing private properties to sit inbetween public properties and public constructors and not in their more natural location.
+
+
 # [v1.5.5] - 2022-1-15 [PR: #60](https://github.com/aksio-insurtech/Defaults/pull/60)
 
 ### Fixed
