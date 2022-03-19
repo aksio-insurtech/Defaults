@@ -1,3 +1,10 @@
+# [v1.5.8] - 2022-1-15 [PR: #63](https://github.com/aksio-insurtech/Defaults/pull/63)
+
+### Fixed
+
+- Disabling CA1019
+
+
 # [v1.5.7] - 2022-1-15 [PR: #62](https://github.com/aksio-insurtech/Defaults/pull/62)
 
 ### Fixed
