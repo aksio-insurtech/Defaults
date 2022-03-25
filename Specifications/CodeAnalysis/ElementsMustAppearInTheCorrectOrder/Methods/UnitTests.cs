@@ -1,17 +1,20 @@
-namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
-{
-    public class UnitTests : CodeFixVerifier
-    {
-        [Fact]
-        public void CorrectOrder()
-        {
-            VerifyCSharpDiagnostic(Common.ValidOrder);
-        }
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-        [Fact]
-        public void MethodsBeforeFields()
-        {
-            const string content = @"
+namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods;
+
+public class UnitTests : CodeFixVerifier
+{
+    [Fact]
+    public void CorrectOrder()
+    {
+        VerifyCSharpDiagnostic(Common.ValidOrder);
+    }
+
+    [Fact]
+    public void MethodsBeforeFields()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => ++_teller;
@@ -20,13 +23,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void MethodsBeforeProperties()
-        {
-            const string content = @"
+    [Fact]
+    public void MethodsBeforeProperties()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => 42;
@@ -35,13 +38,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void MethodsBeforeDelegates()
-        {
-            const string content = @"
+    [Fact]
+    public void MethodsBeforeDelegates()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => 42;
@@ -50,13 +53,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void MethodsBeforeEvents()
-        {
-            const string content = @"
+    [Fact]
+    public void MethodsBeforeEvents()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => 42;
@@ -65,13 +68,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void MethodsBeforeConstructor()
-        {
-            const string content = @"
+    [Fact]
+    public void MethodsBeforeConstructor()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => 42;
@@ -80,13 +83,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void MethodsBeforeFinalizer()
-        {
-            const string content = @"
+    [Fact]
+    public void MethodsBeforeFinalizer()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => 42;
@@ -95,13 +98,13 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void MethodsBeforeIndexers()
-        {
-            const string content = @"
+    [Fact]
+    public void MethodsBeforeIndexers()
+    {
+        const string content = @"
                 class Blabla
                 {
                     void ØkTeller() => ++Teller;
@@ -110,36 +113,35 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder.Methods
                 }
             ";
 
-            VerifyCSharpDiagnostic(content, GetExpectedFailure());
-        }
+        VerifyCSharpDiagnostic(content, GetExpectedFailure());
+    }
 
-        [Fact]
-        public void AnalyzerDoesNotCrashOnEmptyClass()
-        {
-            const string content = @"
+    [Fact]
+    public void AnalyzerDoesNotCrashOnEmptyClass()
+    {
+        const string content = @"
                 class Blabla
                 {
                 }
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new Analyzer();
-        }
+    protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+    {
+        return new Analyzer();
+    }
 
-        DiagnosticResult GetExpectedFailure(int failLine = 4)
+    DiagnosticResult GetExpectedFailure(int failLine = 4)
+    {
+        var analyzer = new Analyzer();
+        return new DiagnosticResult
         {
-            var analyzer = new Analyzer();
-            return new DiagnosticResult
-            {
-                Id = analyzer.Rule.Id,
-                Message = (string)analyzer.Rule.MessageFormat,
-                Severity = analyzer.Rule.DefaultSeverity,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", failLine, 21) }
-            };
-        }
+            Id = analyzer.Rule.Id,
+            Message = (string)analyzer.Rule.MessageFormat,
+            Severity = analyzer.Rule.DefaultSeverity,
+            Locations = new[] { new DiagnosticResultLocation("Test0.cs", failLine, 21) }
+        };
     }
 }

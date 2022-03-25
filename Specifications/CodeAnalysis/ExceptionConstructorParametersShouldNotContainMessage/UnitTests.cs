@@ -1,11 +1,14 @@
-namespace Aksio.CodeAnalysis.ExceptionConstructorParametersShouldNotContainMessage
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.ExceptionConstructorParametersShouldNotContainMessage;
+
+public class UnitTests : CodeFixVerifier
 {
-    public class UnitTests : CodeFixVerifier
+    [Fact]
+    public void WithoutMessageInParameters()
     {
-        [Fact]
-        public void WithoutMessageInParameters()
-        {
-            const string content = @"
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -19,13 +22,13 @@ namespace Aksio.CodeAnalysis.ExceptionConstructorParametersShouldNotContainMessa
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void WithMessageInConstructorParameters()
-        {
-            const string content = @"
+    [Fact]
+    public void WithMessageInConstructorParameters()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -39,35 +42,35 @@ namespace Aksio.CodeAnalysis.ExceptionConstructorParametersShouldNotContainMessa
                 }       
             ";
 
-            var firstFailure = new DiagnosticResult
+        var firstFailure = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 58)
                 }
-            };
+        };
 
-            var secondFailure = new DiagnosticResult
+        var secondFailure = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 79)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, firstFailure, secondFailure);
-        }
+        VerifyCSharpDiagnostic(content, firstFailure, secondFailure);
+    }
 
-        [Fact]
-        public void WithMessageNotBeingStringInConstructorParameters()
-        {
-            const string content = @"
+    [Fact]
+    public void WithMessageNotBeingStringInConstructorParameters()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -81,12 +84,11 @@ namespace Aksio.CodeAnalysis.ExceptionConstructorParametersShouldNotContainMessa
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new Analyzer();
-        }
+    protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+    {
+        return new Analyzer();
     }
 }

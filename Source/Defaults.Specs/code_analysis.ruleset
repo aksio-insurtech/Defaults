@@ -4,8 +4,6 @@
     <!-- Rule set reference : https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019 -->
     <!-- Rule set groups : https://docs.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2019 -->
     <!-- Meziantou Rules : https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs -->
-
-    <Include Path="code_analysis_base.ruleset" Action="Default"/>
    
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
         <Rule Id="SA0001" Action="None" />

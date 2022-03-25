@@ -1,11 +1,14 @@
-namespace Aksio.CodeAnalysis.SealedNotAllowed
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.SealedNotAllowed;
+
+public class UnitTests : CodeFixVerifier
 {
-    public class UnitTests : CodeFixVerifier
+    [Fact]
+    public void WithoutSealed()
     {
-        [Fact]
-        public void WithoutSealed()
-        {
-            const string content = @"
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -17,13 +20,13 @@ namespace Aksio.CodeAnalysis.SealedNotAllowed
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void WithSealed()
-        {
-            const string content = @"
+    [Fact]
+    public void WithSealed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -35,24 +38,24 @@ namespace Aksio.CodeAnalysis.SealedNotAllowed
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 6, 28)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void WithSealedAttribute()
-        {
-            const string content = @"
+    [Fact]
+    public void WithSealedAttribute()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -63,24 +66,22 @@ namespace Aksio.CodeAnalysis.SealedNotAllowed
                     }
                 }       
             ";
-
-            var expected = new DiagnosticResult
+        _ = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 6, 28)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new Analyzer();
-        }
+    protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+    {
+        return new Analyzer();
     }
 }
