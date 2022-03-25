@@ -6,6 +6,8 @@
     <!-- Meziantou Rules : https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs -->
 
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+        <Rule Id="CS1998" Action="Error" />
+        <Rule Id="CS4014" Action="Error" />
         <Rule Id="SA1000" Action="None" />
         <Rule Id="SA1009" Action="None" />
         <Rule Id="SA1101" Action="None" />
