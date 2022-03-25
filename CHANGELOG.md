@@ -1,3 +1,13 @@
+# [v1.5.9] - 2022-3-25 [PR: #66](https://github.com/aksio-insurtech/Defaults/pull/66)
+
+### Fixed
+
+- Styled the code according to our style rules.
+- Disable requirement for globalization awareness in code, we run our things in controlled environments (#64).
+- You have to await calls. Calls that are not awaited (CS4014) will cause a compiler error (#65).
+- You have to await within an async method (CS1998) (#65).
+
+
 # [v1.5.8] - 2022-1-15 [PR: #63](https://github.com/aksio-insurtech/Defaults/pull/63)
 
 ### Fixed
