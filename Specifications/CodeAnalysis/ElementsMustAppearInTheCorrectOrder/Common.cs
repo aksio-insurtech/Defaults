@@ -1,8 +1,11 @@
-namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder;
+
+public static class Common
 {
-    public static class Common
-    {
-        public const string ValidOrder = @"
+    public const string ValidOrder = @"
                 class Blabla
                 {
                     string _someBacking;
@@ -35,5 +38,4 @@ namespace Aksio.CodeAnalysis.ElementsMustAppearInTheCorrectOrder
                     int TellerPlus1 => Teller+1;
                 }   
             ";
-    }
 }

@@ -1,11 +1,14 @@
-namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific;
+
+public class UnitTests : CodeFixVerifier
 {
-    public class UnitTests : CodeFixVerifier
+    [Fact]
+    public void ThrowingCustomException()
     {
-        [Fact]
-        public void ThrowingCustomException()
-        {
-            const string content = @"
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -25,13 +28,13 @@ namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void ThrowingException()
-        {
-            const string content = @"
+    [Fact]
+    public void ThrowingException()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -46,24 +49,24 @@ namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 10, 29)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void ThrowingArgumentException()
-        {
-            const string content = @"
+    [Fact]
+    public void ThrowingArgumentException()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -78,24 +81,24 @@ namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 10, 29)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void ThrowingNotImplementedException()
-        {
-            const string content = @"
+    [Fact]
+    public void ThrowingNotImplementedException()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -110,12 +113,11 @@ namespace Aksio.CodeAnalysis.ExceptionShouldBeSpecific
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new Analyzer();
-        }
+    protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+    {
+        return new Analyzer();
     }
 }

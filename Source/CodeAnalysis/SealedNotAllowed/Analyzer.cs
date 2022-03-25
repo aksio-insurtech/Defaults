@@ -1,48 +1,50 @@
-﻿namespace Aksio.CodeAnalysis.SealedNotAllowed
+﻿// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.SealedNotAllowed;
+
+/// <summary>
+/// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+/// </summary>
+[DiagnosticAnalyzer(LanguageNames.CSharp)]
+public class Analyzer : DiagnosticAnalyzer
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that does not allow the use of the 'sealed' keyword.
+    /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
     /// </summary>
-    [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class Analyzer : DiagnosticAnalyzer
+    public static readonly DiagnosticDescriptor Rule = new(
+         id: "AS0003",
+         title: "SealedNotAllowed",
+         messageFormat: "The keyword 'sealed' unnecessarily locks down code from inheritance - very rare occasions is this a problem",
+         category: "Openness",
+         defaultSeverity: DiagnosticSeverity.Error,
+         isEnabledByDefault: true,
+         description: null,
+         helpLinkUri: string.Empty,
+         customTags: Array.Empty<string>());
+
+    /// <inheritdoc/>
+    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+
+    /// <inheritdoc/>
+    public override void Initialize(AnalysisContext context)
     {
-        /// <summary>
-        /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
-        /// </summary>
-        public static readonly DiagnosticDescriptor Rule = new(
-             id: "AS0003",
-             title: "SealedNotAllowed",
-             messageFormat: "The keyword 'sealed' unnecessarily locks down code from inheritance - very rare occasions is this a problem",
-             category: "Openness",
-             defaultSeverity: DiagnosticSeverity.Error,
-             isEnabledByDefault: true,
-             description: null,
-             helpLinkUri: string.Empty,
-             customTags: Array.Empty<string>());
+        context.EnableConcurrentExecution();
+        context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
+        context.RegisterSyntaxNodeAction(
+            AnalyzeSyntaxNode,
+            ImmutableArray.Create(
+                SyntaxKind.ClassDeclaration));
+    }
 
-        /// <inheritdoc/>
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+    void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context)
+    {
+        var classDeclaration = context.Node as ClassDeclarationSyntax;
+        if (classDeclaration.IsAttribute(context.SemanticModel)) return;
+        var sealedKeyword = classDeclaration.Modifiers.SingleOrDefault(_ => _.IsKind(SyntaxKind.SealedKeyword));
+        if (sealedKeyword == default) return;
 
-        /// <inheritdoc/>
-        public override void Initialize(AnalysisContext context)
-        {
-            context.EnableConcurrentExecution();
-            context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
-            context.RegisterSyntaxNodeAction(
-                AnalyzeSyntaxNode,
-                ImmutableArray.Create(
-                    SyntaxKind.ClassDeclaration));
-        }
-
-        void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context)
-        {
-            var classDeclaration = context.Node as ClassDeclarationSyntax;
-            if (classDeclaration.IsAttribute(context.SemanticModel)) return;
-            var sealedKeyword = classDeclaration.Modifiers.SingleOrDefault(_ => _.IsKind(SyntaxKind.SealedKeyword));
-            if (sealedKeyword == default) return;
-
-            var diagnostic = Diagnostic.Create(Rule, sealedKeyword.GetLocation());
-            context.ReportDiagnostic(diagnostic);
-        }
+        var diagnostic = Diagnostic.Create(Rule, sealedKeyword.GetLocation());
+        context.ReportDiagnostic(diagnostic);
     }
 }

@@ -1,11 +1,14 @@
-namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor;
+
+public class UnitTests : CodeFixVerifier
 {
-    public class UnitTests : CodeFixVerifier
+    [Fact]
+    public void WithoutConstructor()
     {
-        [Fact]
-        public void WithoutConstructor()
-        {
-            const string content = @"
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -16,13 +19,13 @@ namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void WithSingleConstructor()
-        {
-            const string content = @"
+    [Fact]
+    public void WithSingleConstructor()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -36,13 +39,13 @@ namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void WithMultipleConstructors()
-        {
-            const string content = @"
+    [Fact]
+    public void WithMultipleConstructors()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -60,34 +63,33 @@ namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor
                 }       
             ";
 
-            var firstFailure = new DiagnosticResult
+        var firstFailure = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 25)
                 }
-            };
+        };
 
-            var secondFailure = new DiagnosticResult
+        var secondFailure = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 12, 25)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, firstFailure, secondFailure);
-        }
+        VerifyCSharpDiagnostic(content, firstFailure, secondFailure);
+    }
 
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new Analyzer();
-        }
+    protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+    {
+        return new Analyzer();
     }
 }

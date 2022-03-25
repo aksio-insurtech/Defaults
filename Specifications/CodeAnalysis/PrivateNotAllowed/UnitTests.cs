@@ -1,11 +1,14 @@
-namespace Aksio.CodeAnalysis.PrivateNotAllowed
+// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.PrivateNotAllowed;
+
+public class UnitTests : CodeFixVerifier
 {
-    public class UnitTests : CodeFixVerifier
+    [Fact]
+    public void PublicClassWithPublicMethodsPropertiesAndFieldsAllAllowed()
     {
-        [Fact]
-        public void PublicClassWithPublicMethodsPropertiesAndFieldsAllAllowed()
-        {
-            const string content = @"
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -23,13 +26,13 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void PrivatePropertySetterAllowed()
-        {
-            const string content = @"
+    [Fact]
+    public void PrivatePropertySetterAllowed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -41,13 +44,13 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            VerifyCSharpDiagnostic(content);
-        }
+        VerifyCSharpDiagnostic(content);
+    }
 
-        [Fact]
-        public void PrivateClassNotAllowed()
-        {
-            const string content = @"
+    [Fact]
+    public void PrivateClassNotAllowed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -59,24 +62,24 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 6, 21)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void PrivateMethodNotAllowed()
-        {
-            const string content = @"
+    [Fact]
+    public void PrivateMethodNotAllowed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -91,24 +94,24 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 25)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void PrivateFieldNotAllowed()
-        {
-            const string content = @"
+    [Fact]
+    public void PrivateFieldNotAllowed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -120,24 +123,24 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 25)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void PrivatePropertyNotAllowed()
-        {
-            const string content = @"
+    [Fact]
+    public void PrivatePropertyNotAllowed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -149,24 +152,24 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 25)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        [Fact]
-        public void PrivateEventNotAllowed()
-        {
-            const string content = @"
+    [Fact]
+    public void PrivateEventNotAllowed()
+    {
+        const string content = @"
                 using System;
 
                 namespace MyNamespace
@@ -178,23 +181,22 @@ namespace Aksio.CodeAnalysis.PrivateNotAllowed
                 }       
             ";
 
-            var expected = new DiagnosticResult
+        var expected = new DiagnosticResult
+        {
+            Id = Analyzer.Rule.Id,
+            Message = (string)Analyzer.Rule.MessageFormat,
+            Severity = Analyzer.Rule.DefaultSeverity,
+            Locations = new[]
             {
-                Id = Analyzer.Rule.Id,
-                Message = (string)Analyzer.Rule.MessageFormat,
-                Severity = Analyzer.Rule.DefaultSeverity,
-                Locations = new[]
-                {
                     new DiagnosticResultLocation("Test0.cs", 8, 25)
                 }
-            };
+        };
 
-            VerifyCSharpDiagnostic(content, expected);
-        }
+        VerifyCSharpDiagnostic(content, expected);
+    }
 
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new Analyzer();
-        }
+    protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+    {
+        return new Analyzer();
     }
 }

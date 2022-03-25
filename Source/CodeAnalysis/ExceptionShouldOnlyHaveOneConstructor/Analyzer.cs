@@ -1,54 +1,56 @@
-﻿namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor
+﻿// Copyright (c) Aksio Insurtech. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+namespace Aksio.CodeAnalysis.ExceptionShouldOnlyHaveOneConstructor;
+
+/// <summary>
+/// Represents a <see cref="DiagnosticAnalyzer"/> that simplifies exceptions and requiring them to not be used for multiple purposes.
+/// </summary>
+[DiagnosticAnalyzer(LanguageNames.CSharp)]
+public class Analyzer : DiagnosticAnalyzer
 {
     /// <summary>
-    /// Represents a <see cref="DiagnosticAnalyzer"/> that simplifies exceptions and requiring them to not be used for multiple purposes.
+    /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
     /// </summary>
-    [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class Analyzer : DiagnosticAnalyzer
+    public static readonly DiagnosticDescriptor Rule = new(
+         id: "AS0005",
+         title: "ExceptionShouldOnlyHaveOneConstructor",
+         messageFormat: "An exception should not have more than one constructor and typically not a generic one taking a message",
+         category: "Exceptions",
+         defaultSeverity: DiagnosticSeverity.Error,
+         isEnabledByDefault: true,
+         description: null,
+         helpLinkUri: string.Empty,
+         customTags: Array.Empty<string>());
+
+    /// <inheritdoc/>
+    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+
+    /// <inheritdoc/>
+    public override void Initialize(AnalysisContext context)
     {
-        /// <summary>
-        /// Represents the <see cref="DiagnosticDescriptor">rule</see> for the analyzer.
-        /// </summary>
-        public static readonly DiagnosticDescriptor Rule = new (
-             id: "AS0005",
-             title: "ExceptionShouldOnlyHaveOneConstructor",
-             messageFormat: "An exception should not have more than one constructor and typically not a generic one taking a message",
-             category: "Exceptions",
-             defaultSeverity: DiagnosticSeverity.Error,
-             isEnabledByDefault: true,
-             description: null,
-             helpLinkUri: string.Empty,
-             customTags: Array.Empty<string>());
+        context.EnableConcurrentExecution();
+        context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
+        context.RegisterSyntaxNodeAction(
+            HandleClassDeclaration,
+            ImmutableArray.Create(
+                SyntaxKind.ClassDeclaration));
+    }
 
-        /// <inheritdoc/>
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+    void HandleClassDeclaration(SyntaxNodeAnalysisContext context)
+    {
+        var classDeclaration = context.Node as ClassDeclarationSyntax;
+        if (classDeclaration?.BaseList == null || classDeclaration?.BaseList?.Types == null) return;
 
-        /// <inheritdoc/>
-        public override void Initialize(AnalysisContext context)
+        if (classDeclaration.InheritsASystemException(context.SemanticModel))
         {
-            context.EnableConcurrentExecution();
-            context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
-            context.RegisterSyntaxNodeAction(
-                HandleClassDeclaration,
-                ImmutableArray.Create(
-                    SyntaxKind.ClassDeclaration));
-        }
-
-        void HandleClassDeclaration(SyntaxNodeAnalysisContext context)
-        {
-            var classDeclaration = context.Node as ClassDeclarationSyntax;
-            if (classDeclaration?.BaseList == null || classDeclaration?.BaseList?.Types == null) return;
-
-            if (classDeclaration.InheritsASystemException(context.SemanticModel))
+            var constructors = classDeclaration.Members.Where(_ => _.IsKind(SyntaxKind.ConstructorDeclaration)).ToArray();
+            if (constructors.Length > 1)
             {
-                var constructors = classDeclaration.Members.Where(_ => _.IsKind(SyntaxKind.ConstructorDeclaration)).ToArray();
-                if (constructors.Length > 1)
+                foreach (var constructor in constructors)
                 {
-                    foreach (var constructor in constructors)
-                    {
-                        var diagnostic = Diagnostic.Create(Rule, constructor.GetLocation());
-                        context.ReportDiagnostic(diagnostic);
-                    }
+                    var diagnostic = Diagnostic.Create(Rule, constructor.GetLocation());
+                    context.ReportDiagnostic(diagnostic);
                 }
             }
         }
