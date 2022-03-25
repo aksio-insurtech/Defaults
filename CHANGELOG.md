@@ -1,3 +1,10 @@
+# [v1.5.10] - 2022-3-25 [PR: #67](https://github.com/aksio-insurtech/Defaults/pull/67)
+
+### Fixed
+
+- Disabling CA1305 related to globalization. We have control over the runtime environment.
+
+
 # [v1.5.9] - 2022-3-25 [PR: #66](https://github.com/aksio-insurtech/Defaults/pull/66)
 
 ### Fixed
