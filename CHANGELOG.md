@@ -1,3 +1,10 @@
+# [v1.5.11] - 2022-4-16 [PR: #68](https://github.com/aksio-insurtech/Defaults/pull/68)
+
+### Fixed
+
+- Disabling **MA0047** that required one to pass precise `StringComparison` arguments for string comparison methods.
+
+
 # [v1.5.10] - 2022-3-25 [PR: #67](https://github.com/aksio-insurtech/Defaults/pull/67)
 
 ### Fixed
