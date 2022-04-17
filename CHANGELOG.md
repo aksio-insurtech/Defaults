@@ -1,3 +1,10 @@
+# [v1.5.12] - 2022-4-17 [PR: #69](https://github.com/aksio-insurtech/Defaults/pull/69)
+
+### Fixed
+
+- Disabling CA1310 for not requiring to have to use `StringComparison` for string operations. Our things are primarily backend dockerized solutions, we have control over culture settings.
+
+
 # [v1.5.11] - 2022-4-16 [PR: #68](https://github.com/aksio-insurtech/Defaults/pull/68)
 
 ### Fixed
