@@ -1,3 +1,11 @@
+# [v1.5.14] - 2022-4-18 [PR: #71](https://github.com/aksio-insurtech/Defaults/pull/71)
+
+### Fixed
+
+- Disable more rules related to requiring `StringComparison` for string operations such as `Equals()` and others. Not needed for our controlled environments. Pollutes the code.
+
+
+
 # [v1.5.13] - 2022-4-18 [PR: #70](https://github.com/aksio-insurtech/Defaults/pull/70)
 
 ### Fixed
