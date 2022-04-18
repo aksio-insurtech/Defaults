@@ -102,6 +102,7 @@
         <Rule Id="RCS1225" Action="None" />
     </Rules>
     <Rules AnalyzerId="Meziantou.Analyzer" RuleNamespace="Meziantou.Analyzer">
+        <Rule Id="MA0001" Action="None" />
         <Rule Id="MA0002" Action="None" />
         <Rule Id="MA0003" Action="None" />
         <Rule Id="MA0004" Action="None" />
@@ -110,6 +111,7 @@
         <Rule Id="MA0011" Action="None" />
         <Rule Id="MA0015" Action="None" />
         <Rule Id="MA0018" Action="None" />
+        <Rule Id="MA0021" Action="None" />
         <Rule Id="MA0025" Action="None" />
         <Rule Id="MA0026" Action="None" />
         <Rule Id="MA0031" Action="None" />
