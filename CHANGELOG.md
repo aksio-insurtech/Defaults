@@ -1,3 +1,10 @@
+# [v1.5.13] - 2022-4-18 [PR: #70](https://github.com/aksio-insurtech/Defaults/pull/70)
+
+### Fixed
+
+- Disabling CA1307 to avoid having to pass `StringComparison` arguments to string operations like `.Equals()`. Our software runs in controlled environments, we don't need this rule.
+
+
 # [v1.5.12] - 2022-4-17 [PR: #69](https://github.com/aksio-insurtech/Defaults/pull/69)
 
 ### Fixed
