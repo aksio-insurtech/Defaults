@@ -94,6 +94,7 @@
         <Rule Id="RCS1057" Action="Error" />
         <Rule Id="RCS1079" Action="None" />
         <Rule Id="RCS1019" Action="None" /> <!-- ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
+        <Rule Id="RCS1096" Action="None" />
         <Rule Id="RCS1158" Action="None" />
         <Rule Id="RCS1163" Action="None" />
         <Rule Id="RCS1182" Action="Error" />
