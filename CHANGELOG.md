@@ -1,3 +1,10 @@
+# [v1.5.15] - 2022-4-24 [PR: #72](https://github.com/aksio-insurtech/Defaults/pull/72)
+
+### Fixed
+
+- Disable RCS1096 - we want to encourage the use of `.HasFlag()` as that is more readable than bitwize operators.
+
+
 # [v1.5.14] - 2022-4-18 [PR: #71](https://github.com/aksio-insurtech/Defaults/pull/71)
 
 ### Fixed
