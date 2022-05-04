@@ -1,3 +1,10 @@
+# [v1.6.0] - 2022-5-4 [PR: #73](https://github.com/aksio-insurtech/Defaults/pull/73)
+
+### Changed
+
+- Behavioral change; applying static code analysis rules only on **Release** configuration. This is an experiment to see if we can improve local development productivity without having to disable rules and forgetting re-enable them before pushing.
+
+
 # [v1.5.15] - 2022-4-24 [PR: #72](https://github.com/aksio-insurtech/Defaults/pull/72)
 
 ### Fixed
