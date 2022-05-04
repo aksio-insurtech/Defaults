@@ -12,15 +12,12 @@
     
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)code_analysis.ruleset</CodeAnalysisRuleSet>
 
     <LangVersion>10.0</LangVersion>
 
     <NoWarn>$(NoWarn);NU5105;NU5118;CS1591;CS8632;CS8618;CS0012</NoWarn> <!-- CS0012 - ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
     <Nullable>disable</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
-    <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
 
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -29,13 +26,17 @@
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
 
+    <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)code_analysis.ruleset</CodeAnalysisRuleSet>
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
     <RunAnalyzers>True</RunAnalyzers>
-
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>

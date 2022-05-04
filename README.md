@@ -49,6 +49,20 @@ and [common project properties](https://docs.microsoft.com/en-us/visualstudio/ms
 It takes advantage of a feature in MSBuild that by convention will include props from a file named the same as its package name in any
 consumers. In our case this is the [Aksio.Defaults.props](./Source/Defaults.Aksio.Defaults.props) and [Aksio.Defaults.Specs.props](./Source/Defaults.Aksio.Defaults.Specs.props).
 
+### Debug vs Release
+
+The default behavior of the static code analysis is to have it disabled while building with the **Debug** Configuration.
+Typically for CI/CD pipelines we run in **Release** and will therefor run all rules there.
+
+If one wants to check things before committing or finalizing a pull request for instance, one could run the build with **Release** configuration
+
+```shell
+$ dotnet build --configuration Release
+```
+
+> Note: It is also possible to run this command as a **Git Hook** either on commit, pre-push or pre-receive for instance, read more [here](https://githooks.com).
+> Since most hooks run on the client and is not configured for the repository, its harder to share in a team. Recommend reading [this](https://www.viget.com/articles/two-ways-to-share-git-hooks-with-your-team/).
+
 ### Static Code Analysis
 
 The props files configures a default behavior for builds with a [common set of static code analysis rules](./Source/Defaults/code_analysis.ruleset) and
