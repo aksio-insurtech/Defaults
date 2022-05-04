@@ -1,3 +1,10 @@
+# [v1.6.2] - 2022-5-4 [PR: #75](https://github.com/aksio-insurtech/Defaults/pull/75)
+
+### Fixed
+
+- Setting **Configuration** to **Debug** as default if not set. Seeing evidence of it not being set at the time the **props** file is implicitly being imported like we do with MSBuild.
+
+
 # [v1.6.1] - 2022-5-4 [PR: #74](https://github.com/aksio-insurtech/Defaults/pull/74)
 
 ### Fixed
