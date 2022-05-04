@@ -1,3 +1,10 @@
+# [v1.6.1] - 2022-5-4 [PR: #74](https://github.com/aksio-insurtech/Defaults/pull/74)
+
+### Fixed
+
+- Rules where still being applied, but not the ruleset we have configured. Explicitly turning off static code analysis for **Debug** with this release.
+
+
 # [v1.6.0] - 2022-5-4 [PR: #73](https://github.com/aksio-insurtech/Defaults/pull/73)
 
 ### Changed
