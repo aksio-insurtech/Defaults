@@ -79,9 +79,9 @@ You can still enable the static code analysis rules by adding the following **Pr
 
 ```xml
 <PropertyGroup>
-    <RunAnalyzers>False</RunAnalyzers>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <MSBuildTreatWarningsAsErrors>False</MSBuildTreatWarningsAsErrors>
+    <RunAnalyzers>True</RunAnalyzers>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <MSBuildTreatWarningsAsErrors>True</MSBuildTreatWarningsAsErrors>
 </PropertyGroup>
 ```
 
