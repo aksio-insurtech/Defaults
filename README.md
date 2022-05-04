@@ -60,6 +60,16 @@ If one wants to check things before committing or finalizing a pull request for 
 $ dotnet build --configuration Release
 ```
 
+You can still enable the static code analysis rules by adding the following **PropertyGroup** to your **.csproj** or **Directory.Build.props** file:
+
+```xml
+<PropertyGroup>
+    <RunAnalyzers>False</RunAnalyzers>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <MSBuildTreatWarningsAsErrors>False</MSBuildTreatWarningsAsErrors>
+</PropertyGroup>
+```
+
 > Note: It is also possible to run this command as a **Git Hook** either on commit, pre-push or pre-receive for instance, read more [here](https://githooks.com).
 > Since most hooks run on the client and is not configured for the repository, its harder to share in a team. Recommend reading [this](https://www.viget.com/articles/two-ways-to-share-git-hooks-with-your-team/).
 
