@@ -49,6 +49,21 @@ and [common project properties](https://docs.microsoft.com/en-us/visualstudio/ms
 It takes advantage of a feature in MSBuild that by convention will include props from a file named the same as its package name in any
 consumers. In our case this is the [Aksio.Defaults.props](./Source/Defaults.Aksio.Defaults.props) and [Aksio.Defaults.Specs.props](./Source/Defaults.Aksio.Defaults.Specs.props).
 
+### Static Code Analysis
+
+The props files configures a default behavior for builds with a [common set of static code analysis rules](./Source/Defaults/code_analysis.ruleset) and
+[stylecop rules](./Source/Defaults/stylecop.json). In addition to this it provides a set of default NuGet metadata properties to ease
+the creation of projects that are to be published as NuGet packages.
+
+Read more about the [ruleset format](https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md) and the default [rulset](https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019).
+In addition, we leverage a 3rd party ruleset - read more about the different rules [here](https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs).
+
+This repository also adds custom Aksio rules. Read the [documentation](./Documentation/CodeAnalysis/Analyzers/overview.md) on the different rules.
+
+With the introduction of [Global AnalyserConfig](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig) one can
+take typical things one would hav ein `.editorconfig` files and package for reuse. This project does so as well by adding a global editorconfig.
+For examples on how these can be set up look [here](https://github.com/dotnet/roslyn/blob/main/.editorconfig) or [here](https://gist.github.com/bryanknox/e07027d4d32e0288e488b918545786c8).
+
 ### Debug vs Release
 
 The default behavior of the static code analysis is to have it disabled while building with the **Debug** Configuration.
@@ -72,21 +87,6 @@ You can still enable the static code analysis rules by adding the following **Pr
 
 > Note: It is also possible to run this command as a **Git Hook** either on commit, pre-push or pre-receive for instance, read more [here](https://githooks.com).
 > Since most hooks run on the client and is not configured for the repository, its harder to share in a team. Recommend reading [this](https://www.viget.com/articles/two-ways-to-share-git-hooks-with-your-team/).
-
-### Static Code Analysis
-
-The props files configures a default behavior for builds with a [common set of static code analysis rules](./Source/Defaults/code_analysis.ruleset) and
-[stylecop rules](./Source/Defaults/stylecop.json). In addition to this it provides a set of default NuGet metadata properties to ease
-the creation of projects that are to be published as NuGet packages.
-
-Read more about the [ruleset format](https://github.com/dotnet/roslyn/blob/master/docs/compilers/Rule%20Set%20Format.md) and the default [rulset](https://docs.microsoft.com/en-us/visualstudio/code-quality/rule-set-reference?view=vs-2019).
-In addition, we leverage a 3rd party ruleset - read more about the different rules [here](https://github.com/meziantou/Meziantou.Analyzer/tree/main/docs).
-
-This repository also adds custom Aksio rules. Read the [documentation](./Documentation/CodeAnalysis/Analyzers/overview.md) on the different rules.
-
-With the introduction of [Global AnalyserConfig](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig) one can
-take typical things one would hav ein `.editorconfig` files and package for reuse. This project does so as well by adding a global editorconfig.
-For examples on how these can be set up look [here](https://github.com/dotnet/roslyn/blob/main/.editorconfig) or [here](https://gist.github.com/bryanknox/e07027d4d32e0288e488b918545786c8).
 
 ### Packages
 
