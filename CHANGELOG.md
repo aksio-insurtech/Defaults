@@ -1,3 +1,10 @@
+# [v1.6.3] - 2022-5-4 [PR: #76](https://github.com/aksio-insurtech/Defaults/pull/76)
+
+### Fixed
+
+- Setting default **Debug** **configuration** for Specs as well as regular projects.
+
+
 # [v1.6.2] - 2022-5-4 [PR: #75](https://github.com/aksio-insurtech/Defaults/pull/75)
 
 ### Fixed
