@@ -39,6 +39,10 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)'==''">
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <RunAnalyzers>False</RunAnalyzers>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
