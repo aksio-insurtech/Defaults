@@ -1,3 +1,10 @@
+# [v1.6.4] - 2022-5-24 [PR: #79](https://github.com/aksio-insurtech/Defaults/pull/79)
+
+### Fixed
+
+- Disabling IDE0042 that requires deconstruction of tuples returned.
+
+
 # [v1.6.3] - 2022-5-4 [PR: #76](https://github.com/aksio-insurtech/Defaults/pull/76)
 
 ### Fixed
