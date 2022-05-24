@@ -46,6 +46,7 @@
         <Rule Id="IDE0010" Action="None" />
         <Rule Id="IDE0040" Action="None" />
         <Rule Id="IDE0040WithoutSuggestion" Action="None" />
+        <Rule Id="IDE0042" Action="None" />
         <Rule Id="IDE0044" Action="None" />
         <Rule Id="IDE0060" Action="None" />
         <Rule Id="IDE0051" Action="None" />

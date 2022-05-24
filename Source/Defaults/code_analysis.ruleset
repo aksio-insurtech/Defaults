@@ -37,6 +37,7 @@
         <Rule Id="IDE0010" Action="None" />
         <Rule Id="IDE0040" Action="None" />
         <Rule Id="IDE0040WithoutSuggestion" Action="None" />        
+        <Rule Id="IDE0042" Action="None" />
         <Rule Id="IDE0055" Action="None" />
         <Rule Id="IDE0072" Action="None" />
         <Rule Id="IDE0083" Action="None" />
