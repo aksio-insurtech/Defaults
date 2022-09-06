@@ -1,3 +1,10 @@
+# [v1.6.5] - 2022-9-6 [PR: #80](https://github.com/aksio-insurtech/Defaults/pull/80)
+
+### Added
+
+- Adding properties for NuGet to include both source and the PDB files when packaging. Increases debugability across different environments. Downside is larger packages.
+
+
 # [v1.6.4] - 2022-5-24 [PR: #79](https://github.com/aksio-insurtech/Defaults/pull/79)
 
 ### Fixed
