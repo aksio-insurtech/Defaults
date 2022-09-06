@@ -25,6 +25,7 @@
     <IsTestProject>false</IsTestProject>
 
     <!-- Debuggability -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>    
     <IncludeSource>True</IncludeSource>
