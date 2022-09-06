@@ -1,3 +1,10 @@
+# [v1.6.6] - 2022-9-6 [PR: #81](https://github.com/aksio-insurtech/Defaults/pull/81)
+
+### Fixed
+
+- Reverting; excluding PDB files from packages. Relying on Source Link instead. PS: must be added in the project that published for the correct source control provider. Read more [here](https://github.com/dotnet/sourcelink#githubcom-and-github-enterprise).
+
+
 # [v1.6.5] - 2022-9-6 [PR: #80](https://github.com/aksio-insurtech/Defaults/pull/80)
 
 ### Added
