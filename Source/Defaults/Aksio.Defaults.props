@@ -25,13 +25,9 @@
     <IsTestProject>false</IsTestProject>
 
     <!-- Debuggability -->
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>    
     <IncludeSource>True</IncludeSource>
-    <EmbedAllSources>True</EmbedAllSources>
-    <DebugType>Embedded</DebugType>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <!-- Debuggability - End -->
 
     <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
