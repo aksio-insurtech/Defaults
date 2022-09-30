@@ -1,3 +1,10 @@
+# [v1.6.7] - 2022-9-30 [PR: #83](https://github.com/aksio-insurtech/Defaults/pull/83)
+
+### Fixed
+
+- Removing default `<RepositoryUrl/>`. Apparently this ends up as `<repoitory url=""/>` even when overridden in a project.
+
+
 # [v1.6.6] - 2022-9-6 [PR: #81](https://github.com/aksio-insurtech/Defaults/pull/81)
 
 ### Fixed
