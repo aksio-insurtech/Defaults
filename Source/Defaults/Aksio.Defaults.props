@@ -7,7 +7,6 @@
     <PackageIcon>logo.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/aksio-system/Home</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
     <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
