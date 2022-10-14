@@ -1,3 +1,10 @@
+# [v1.6.8] - 2022-10-14 [PR: #84](https://github.com/aksio-insurtech/Defaults/pull/84)
+
+### Fixed
+
+- Disable CA1002
+
+
 # [v1.6.7] - 2022-9-30 [PR: #83](https://github.com/aksio-insurtech/Defaults/pull/83)
 
 ### Fixed
