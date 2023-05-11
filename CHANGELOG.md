@@ -1,3 +1,10 @@
+# [v1.6.10] - 2023-5-11 [PR: #86](https://github.com/aksio-insurtech/Defaults/pull/86)
+
+### Fixed
+
+- Setting analytics rule CA2213 to error to highlight fields that aren't disposed. This should help fight memory leakage of unmanaged memory.
+
+
 # [v1.6.9] - 2023-5-11 [PR: #85](https://github.com/aksio-insurtech/Defaults/pull/85)
 
 ### Fixed
