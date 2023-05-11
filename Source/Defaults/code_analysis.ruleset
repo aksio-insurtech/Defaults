@@ -81,7 +81,7 @@
         <Rule Id="CA1822" Action="None" />
         <Rule Id="CA1829" Action="Error" />
         <Rule Id="CA1834" Action="None" />
-        <Rule Id="CA2000" Action="None" />
+        <Rule Id="CA2000" Action="Error" /> <!-- To avoid memory leakage of unmanaged memory -->
         <Rule Id="CA2007" Action="None" /> <!-- ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
         <Rule Id="CA2016" Action="None" />
         <Rule Id="CA2211" Action="None" />
