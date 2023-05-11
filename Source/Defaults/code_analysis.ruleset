@@ -81,10 +81,11 @@
         <Rule Id="CA1822" Action="None" />
         <Rule Id="CA1829" Action="Error" />
         <Rule Id="CA1834" Action="None" />
-        <Rule Id="CA2000" Action="Error" /> <!-- To avoid memory leakage of unmanaged memory -->
+        <Rule Id="CA2000" Action="Error" /> <!-- To avoid memory leakage of unmanaged memory. Make sure disposable objects are disposed. -->
         <Rule Id="CA2007" Action="None" /> <!-- ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
         <Rule Id="CA2016" Action="None" />
         <Rule Id="CA2211" Action="None" />
+        <Rule Id="CA2213" Action="Error" /> <!-- To avoid memory leakage of unmanaged memory. Make sure fields holding disposables are disposed. -->
         <Rule Id="CA2225" Action="None" />
         <Rule Id="CA2227" Action="None" />
         <Rule Id="CA2234" Action="None" />
