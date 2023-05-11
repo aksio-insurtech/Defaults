@@ -1,3 +1,10 @@
+# [v1.6.9] - 2023-5-11 [PR: #85](https://github.com/aksio-insurtech/Defaults/pull/85)
+
+### Fixed
+
+- Setting diagnostic rule CA2000 to error to get errors when `IDisposable` objects aren't disposed. This should help avoid unmanaged memory leaks.
+
+
 # [v1.6.8] - 2022-10-14 [PR: #84](https://github.com/aksio-insurtech/Defaults/pull/84)
 
 ### Fixed
