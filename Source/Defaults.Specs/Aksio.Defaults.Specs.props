@@ -17,8 +17,8 @@
 
     <NoWarn>$(NoWarn);NU5105;NU5118;CS1591;CS8632;CS8618;CS0012</NoWarn> <!-- CS0012 - ConfigureAwait: https://devblogs.microsoft.com/dotnet/configureawait-faq/#when-should-i-use-configureawaitfalse -->
     <Nullable>disable</Nullable>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <TreatWarningsAsErrors Condition=" '$(Configuration)' == 'Release' ">true</TreatWarningsAsErrors>
+    <MSBuildTreatWarningsAsErrors Condition=" '$(Configuration)' == 'Release' ">true</MSBuildTreatWarningsAsErrors>
 
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <IsTestProject>false</IsTestProject>
@@ -29,7 +29,6 @@
     <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 
-    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)code_analysis.ruleset</CodeAnalysisRuleSet>
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
@@ -42,9 +41,17 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <RunAnalyzers>False</RunAnalyzers>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <MSBuildTreatWarningsAsErrors>False</MSBuildTreatWarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>False</CodeAnalysisTreatWarningsAsErrors>
+    <StyleCopTreatErrorsAsWarnings>False</StyleCopTreatErrorsAsWarnings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <MSBuildTreatWarningsAsErrors>True</MSBuildTreatWarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
+    <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
   </PropertyGroup>
 
   <ItemGroup>
