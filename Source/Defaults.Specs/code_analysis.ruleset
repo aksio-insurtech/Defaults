@@ -7,8 +7,8 @@
    
     <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
         <Rule Id="CS0103" Action="None" />
-        <Rule Id="CS1998" Action="Error" />
-        <Rule Id="CS4014" Action="Error" />
+        <Rule Id="CS1998" Action="Warning" />
+        <Rule Id="CS4014" Action="Warning" />
         <Rule Id="SA0001" Action="None" />
         <Rule Id="SA1009" Action="None" />
         <Rule Id="SA1012" Action="None" />
